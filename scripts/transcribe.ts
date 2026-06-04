@@ -98,6 +98,10 @@ for (const raw of transcribableItems) {
     await writeJson(outputPath, transcript)
     done += 1
     console.log(`✓ wrote ${outputPath}`)
+  } catch (error) {
+    skipped += 1
+    const message = error instanceof Error ? error.message : String(error)
+    console.warn(`⚠ skipped ${raw.id}: ${message}`)
   } finally {
     await rm(tempDir, { recursive: true, force: true })
   }
@@ -113,17 +117,29 @@ async function transcribeSegment(filePath: string) {
   form.set('response_format', 'json')
   form.set('file', new Blob([bytes], { type: 'audio/mpeg' }), path.basename(filePath))
 
-  const response = await fetch(apiUrl, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}` },
-    body: form,
-  })
+  let lastError = ''
+  for (let attempt = 1; attempt <= 4; attempt += 1) {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${apiKey}` },
+      body: form,
+    })
 
-  if (!response.ok) {
+    if (response.ok) {
+      const data = await response.json() as { text?: string }
+      return data.text?.trim() ?? ''
+    }
+
     const detail = await response.text()
-    throw new Error(`Whisper API failed ${response.status}: ${detail.slice(0, 500)}`)
+    lastError = `Whisper API failed ${response.status}: ${detail.slice(0, 500)}`
+    if (response.status < 500 || attempt === 4) break
+    console.warn(`  retrying segment after ${response.status} (${attempt}/4)`)
+    await sleep(2_000 * attempt)
   }
 
-  const data = await response.json() as { text?: string }
-  return data.text?.trim() ?? ''
+  throw new Error(lastError)
+}
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
