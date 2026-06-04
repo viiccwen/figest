@@ -4,6 +4,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { sources, sourceById } from '../src/lib/sources'
 import type { DigestIndex, RawContentItem, SourceConfig, SummaryItem } from '../src/lib/types'
+import { buildQualitySummary } from './content-quality'
 
 export const rootDir = process.cwd()
 export const rawDir = path.join(rootDir, 'content/raw/items')
@@ -124,15 +125,8 @@ export function heuristicSummary(raw: RawContentItem, transcriptText?: string): 
   const sourceName = source?.name ?? raw.sourceId
   const sourceSlug = source?.slug ?? raw.sourceId
   const hasTranscript = Boolean(transcriptText?.trim())
-  const text = hasTranscript ? transcriptText!.trim() : raw.description || raw.title
-  const fragments = text.split(/[。！？!?；;\n]/).map((part) => part.trim()).filter(Boolean)
-  const topics = inferTopics(`${raw.title} ${text}`)
-  const keyPoints = [
-    fragments[0] || `本集標題聚焦「${raw.title}」。`,
-    fragments[1] || (hasTranscript ? '逐字稿內容較短，建議回原始內容確認完整語境。' : '目前 MVP 以公開 feed metadata / show notes 做保守整理，尚未接完整逐字稿。'),
-    topics.length ? `可先追蹤的主題包含：${topics.slice(0, 4).join('、')}。` : '建議點回原始內容確認完整脈絡。',
-  ]
-  const sourceTextQuality = hasTranscript ? 'transcript' : text.length > 240 ? 'show-notes' : 'metadata-only'
+  const quality = buildQualitySummary(raw, transcriptText)
+  const sourceTextQuality = hasTranscript ? 'transcript' : quality.cleanedText.length > 240 ? 'show-notes' : 'metadata-only'
   const risks = hasTranscript
     ? ['逐字稿由 Whisper API 產生，仍可能有聽寫錯誤或斷句誤差。', '財經節目內容常含主持人觀點與情境討論，請勿視為買賣建議。']
     : ['目前資料來源可能只有標題與 show notes，摘要完整度有限。', '財經節目內容常含主持人觀點與情境討論，請勿視為買賣建議。']
@@ -145,33 +139,15 @@ export function heuristicSummary(raw: RawContentItem, transcriptText?: string): 
     url: raw.url,
     publishedAt: raw.publishedAt,
     summarizedAt: new Date().toISOString(),
-    excerpt: keyPoints.join(' '),
-    keyPoints,
-    body: `${keyPoints.join('\n\n')}\n\n這份摘要由自動化管線產生，會優先避免補充原始文字沒有提供的數字、價格或投資結論。${hasTranscript ? '本篇已使用 Whisper 轉錄文字作為摘要基礎，但仍需回原節目查證。' : '若之後啟用 Whisper 轉錄，系統可用完整內容重新生成更細的章節摘要。'}`,
-    topics,
-    mentionedAssets: inferAssets(`${raw.title} ${text}`),
+    excerpt: quality.excerpt,
+    keyPoints: quality.keyPoints,
+    body: quality.body,
+    topics: quality.topics,
+    mentionedAssets: quality.mentionedAssets,
     sentiment: '資訊不足',
     risks,
     sourceTextQuality,
   }
-}
-
-function inferTopics(text: string) {
-  const dictionary: Record<string, string[]> = {
-    AI: ['AI', '人工智慧', '輝達', 'NVIDIA'],
-    ETF: ['ETF'],
-    台股: ['台股', '台積電', '加權'],
-    美股: ['美股', 'Nasdaq', 'S&P', '標普'],
-    總經: ['通膨', '利率', 'Fed', '降息', '關稅', '匯率'],
-    半導體: ['半導體', '晶片', '台積電', '輝達'],
-    加密貨幣: ['比特幣', 'Bitcoin', 'BTC', '加密'],
-  }
-  return Object.entries(dictionary).filter(([, keys]) => keys.some((key) => text.includes(key))).map(([topic]) => topic)
-}
-
-function inferAssets(text: string) {
-  const assets = ['台積電', 'NVIDIA', '輝達', 'Bitcoin', 'BTC', '0050', '006208']
-  return assets.filter((asset) => text.includes(asset))
 }
 
 export function sortSummaries(items: SummaryItem[]) {
