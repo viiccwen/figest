@@ -1,0 +1,74 @@
+[
+  {
+    "id": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-001",
+    "rawItemId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+    "segmentId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-001",
+    "claim": "费本还在创高那这次大家最关注的当然就是川普重新启动他的保护主义政策这一次美国贸易代表署USTR的最新提案美国会针对全球60个国家课征10%的新关税其中包含台湾欧盟英国加拿大和墨西哥那其他有些更高像中国日",
+    "claimType": "fact",
+    "entities": [
+      "川普"
+    ],
+    "tickers": [],
+    "sentiment": "bullish",
+    "confidence": 0.83,
+    "evidence": {
+      "start": 0,
+      "end": 60,
+      "quote": "费本还在创高那这次大家最关注的当然就是川普重新启动他的保护主义政策这一次美国贸易代表署USTR的最新提案美国会针对全球60个国家课征10%的新关税其中包含台湾欧盟英国加拿大和墨西哥那其他有些更高像中国日"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-002",
+    "rawItemId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+    "segmentId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-003",
+    "claim": "这四个议题也没那么容易谈拢除了第一个荷姆斯海峡的控制权以外另外三个其实都会有相对一性的压力所以市场的评价还是看得出来昨天布兰特原油价格涨幅还有1.",
+    "claimType": "risk",
+    "entities": [
+      "原油"
+    ],
+    "tickers": [],
+    "sentiment": "mixed",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 120,
+      "end": 180,
+      "quote": "这四个议题也没那么容易谈拢除了第一个荷姆斯海峡的控制权以外另外三个其实都会有相对一性的压力所以市场的评价还是看得出来昨天布兰特原油价格涨幅还有1."
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-003",
+    "rawItemId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+    "segmentId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-008",
+    "claim": "这波行情走得并不平均几乎所有的涨幅都集中在台韩两个经济体我们以美元计价就是把台币和韩元都换算成美元南韩股市今年是涨了87%全球第一第二名就台湾了涨幅56%第二相对之下我们看美股不能看非半我们要看整个大盘标普也不过涨10.",
+    "claimType": "macro",
+    "entities": [
+      "美元"
+    ],
+    "tickers": [
+      "USD"
+    ],
+    "sentiment": "bullish",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 420,
+      "end": 480,
+      "quote": "这波行情走得并不平均几乎所有的涨幅都集中在台韩两个经济体我们以美元计价就是把台币和韩元都换算成美元南韩股市今年是涨了87%全球第一第二名就台湾了涨幅56%第二相对之下我们看美股不能看非半我们要看整个大盘标普也不过涨10."
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-004",
+    "rawItemId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+    "segmentId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-011",
+    "claim": "一样如果你以前觉得以前2022年一年物价涨幅是三成现在涨幅就是19%这是从体感来做观察的但你可以观察到政府唯一能够做的就是进行通膨物价的抑制所以进行高强度的补贴让过热的经济不要反映在实体民间的物资身上但是也说明着整个政府的财政也来得",
+    "claimType": "macro",
+    "entities": [],
+    "tickers": [],
+    "sentiment": "bullish",
+    "confidence": 0.8,
+    "evidence": {
+      "start": 600,
+      "end": 660,
+      "quote": "一样如果你以前觉得以前2022年一年物价涨幅是三成现在涨幅就是19%这是从体感来做观察的但你可以观察到政府唯一能够做的就是进行通膨物价的抑制所以进行高强度的补贴让过热的经济不要反映在实体民间的物资身上但是也说明着整个政府的财政也来得"
+    }
+  }
+]

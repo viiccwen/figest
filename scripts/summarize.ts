@@ -1,7 +1,7 @@
 import { readdir } from 'node:fs/promises'
 import path from 'node:path'
 import type { NormalizedTranscriptArtifact, RawContentItem, TranscriptItem } from '../src/lib/types'
-import { ensureDirs, heuristicSummary, normalizedTranscriptDir, rawDir, readJson, summaryDir, transcriptDir, writeJson } from './shared'
+import { ensureDirs, groundedSummary, normalizedTranscriptDir, rawDir, readJson, summaryDir, transcriptDir, writeJson } from './shared'
 
 await ensureDirs()
 const files = (await readdir(rawDir)).filter((file) => file.endsWith('.json'))
@@ -11,7 +11,7 @@ for (const file of files) {
   const raw = await readJson<RawContentItem>(path.join(rawDir, file))
   const transcript = await readPreferredTranscript(raw.id)
   if (transcript?.text) transcriptCount += 1
-  const summary = heuristicSummary(raw, transcript?.text)
+  const summary = await groundedSummary(raw, transcript?.text)
   await writeJson(path.join(summaryDir, `${summary.id}.json`), summary)
   count += 1
 }

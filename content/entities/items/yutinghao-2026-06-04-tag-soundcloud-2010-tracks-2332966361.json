@@ -1,0 +1,79 @@
+[
+  {
+    "id": "entity-commodity-原油",
+    "canonicalName": "原油",
+    "aliases": [
+      "西德州原油"
+    ],
+    "type": "commodity",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-003"
+    ]
+  },
+  {
+    "id": "entity-currency-美元-usd",
+    "canonicalName": "美元",
+    "aliases": [],
+    "type": "currency",
+    "ticker": "USD",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-002",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-004",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-008"
+    ]
+  },
+  {
+    "id": "entity-person-川普",
+    "canonicalName": "川普",
+    "aliases": [],
+    "type": "person",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-001",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-002",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-003",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-004",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-005",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-006"
+    ]
+  },
+  {
+    "id": "entity-topic-ai",
+    "canonicalName": "AI",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-001",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-002",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-003",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-004",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-005",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-006",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-007",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-008",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-009",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-010",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-011",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-012"
+    ]
+  },
+  {
+    "id": "entity-topic-etf",
+    "canonicalName": "ETF",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-001",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-002",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-003",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-004",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-005",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-006",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-007",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-008",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-009",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-010",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-011",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-seg-012"
+    ]
+  }
+]

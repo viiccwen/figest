@@ -1,0 +1,51 @@
+[
+  {
+    "id": "entity-currency-新台幣-twd",
+    "canonicalName": "新台幣",
+    "aliases": [
+      "台幣"
+    ],
+    "type": "currency",
+    "ticker": "TWD",
+    "evidenceSegmentIds": [
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-018"
+    ]
+  },
+  {
+    "id": "entity-currency-美元-usd",
+    "canonicalName": "美元",
+    "aliases": [
+      "美金"
+    ],
+    "type": "currency",
+    "ticker": "USD",
+    "evidenceSegmentIds": [
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-018",
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-019"
+    ]
+  },
+  {
+    "id": "entity-person-川普",
+    "canonicalName": "川普",
+    "aliases": [],
+    "type": "person",
+    "evidenceSegmentIds": [
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-016",
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-024"
+    ]
+  },
+  {
+    "id": "entity-topic-ai",
+    "canonicalName": "AI",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-007",
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-009",
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-010",
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-011",
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-012",
+      "gooaye-2026-05-27-181f554e-900e-4261-bc3c-1a3fe53a902a-seg-013"
+    ]
+  }
+]

@@ -24,6 +24,8 @@ export function toZhTw(input = '') {
   for (const [from, to] of entries) text = text.replaceAll(from, to)
   return text
     .replace(/,/g, '，')
+    .replace(/;/g, '；')
+    .replace(/:/g, '：')
     .replace(/\s*\?/g, '？')
     .replace(/\s*!/g, '！')
     .replace(/\s+([，。！？；：])/g, '$1')

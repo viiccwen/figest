@@ -154,6 +154,27 @@ export type WatchlistInsight = {
   riskLevel: 'low' | 'medium' | 'high'
 }
 
+export type EvidenceClaim = {
+  id: string
+  claim: string
+  claimType: ExtractedClaim['claimType']
+  sentiment: ExtractedClaim['sentiment']
+  confidence: number
+  entities: string[]
+  tickers: string[]
+  evidence?: {
+    start?: number
+    end?: number
+    quote?: string
+  }
+}
+
+export type DigestEntityChip = {
+  label: string
+  type: ExtractedEntity['type']
+  ticker?: string
+}
+
 export type SummaryItem = {
   id: string
   sourceId: string
@@ -171,6 +192,9 @@ export type SummaryItem = {
   sentiment: '偏多' | '中性' | '偏空' | '混合' | '資訊不足'
   risks: string[]
   sourceTextQuality: 'metadata-only' | 'show-notes' | 'transcript'
+  evidenceClaims?: EvidenceClaim[]
+  watchlistInsights?: WatchlistInsight[]
+  entityChips?: DigestEntityChip[]
 }
 
 export type DigestIndex = {
