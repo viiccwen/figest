@@ -11,6 +11,9 @@ import { createWhisperCompatibleProvider } from './transcription/whisper-compati
 type RawContentItemWithAudio = RawContentItem & { audioUrl: string }
 
 const limitArg = parseLimit(process.argv.find((arg) => arg.startsWith('--limit='))?.split('=')[1] ?? process.env.WHISPER_TRANSCRIBE_LIMIT)
+const maxItemsArg = parseOptionalPositiveInteger(
+  process.argv.find((arg) => arg.startsWith('--max-items='))?.split('=')[1] ?? process.env.WHISPER_TRANSCRIBE_MAX_ITEMS,
+)
 const onlySource = process.argv.find((arg) => arg.startsWith('--source='))?.split('=')[1]
 const force = process.argv.includes('--force')
 
@@ -35,6 +38,7 @@ const transcribableItems = rawItems
   .filter(hasAudioUrl)
   .filter((raw) => !onlySource || raw.sourceId === onlySource)
   .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
+  .slice(0, maxItemsArg ?? undefined)
 let done = 0
 let skipped = rawItems.length - transcribableItems.length
 
@@ -212,6 +216,15 @@ function parseLimit(value: string | undefined): number {
 
   const parsed = Number(value)
   if (!Number.isFinite(parsed) || parsed < 0) return 2
+
+  return Math.floor(parsed)
+}
+
+function parseOptionalPositiveInteger(value: string | undefined): number | undefined {
+  if (value === undefined || value.trim() === '') return undefined
+
+  const parsed = Number(value)
+  if (!Number.isFinite(parsed) || parsed <= 0) return undefined
 
   return Math.floor(parsed)
 }
