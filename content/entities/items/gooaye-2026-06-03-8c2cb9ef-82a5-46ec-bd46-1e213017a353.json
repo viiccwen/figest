@@ -1,0 +1,84 @@
+[
+  {
+    "id": "entity-company-台積電-2330",
+    "canonicalName": "台積電",
+    "aliases": [
+      "2330",
+      "TSM",
+      "台積"
+    ],
+    "type": "company",
+    "ticker": "2330",
+    "exchange": "TWSE",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-010",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-011",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-014",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-015",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-019"
+    ]
+  },
+  {
+    "id": "entity-company-輝達-nvda",
+    "canonicalName": "輝達",
+    "aliases": [],
+    "type": "company",
+    "ticker": "NVDA",
+    "exchange": "NASDAQ",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-006",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-007",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-012",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-014",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-015"
+    ]
+  },
+  {
+    "id": "entity-person-川普",
+    "canonicalName": "川普",
+    "aliases": [],
+    "type": "person",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-014",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-017"
+    ]
+  },
+  {
+    "id": "entity-topic-ai",
+    "canonicalName": "AI",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-008",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-009",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-010",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-012",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-014",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-021"
+    ]
+  },
+  {
+    "id": "entity-topic-etf",
+    "canonicalName": "ETF",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-013"
+    ]
+  },
+  {
+    "id": "entity-topic-半導體",
+    "canonicalName": "半導體",
+    "aliases": [
+      "晶片"
+    ],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-008",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-009",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-010",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-014",
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-seg-015"
+    ]
+  }
+]

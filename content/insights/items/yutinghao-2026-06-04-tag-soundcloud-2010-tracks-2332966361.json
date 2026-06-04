@@ -1,0 +1,54 @@
+[
+  {
+    "id": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-macro-rates",
+    "rawItemId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+    "watchlistKey": "macro-rates",
+    "title": "總經 / 利率 觀察：TWD、USD",
+    "summary": "主張顯示風險或壓力升高，涉及 AI。相關代號：TWD、USD。風險訊號偏高，適合列入優先追蹤。",
+    "relatedTickers": [
+      "TWD",
+      "USD"
+    ],
+    "claimIds": [
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-007",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-003",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-005"
+    ],
+    "riskLevel": "high"
+  },
+  {
+    "id": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-semis-ai",
+    "rawItemId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+    "watchlistKey": "semis-ai",
+    "title": "半導體 / AI 觀察：2330、AMD、NVDA",
+    "summary": "主張顯示風險或壓力升高，涉及 AI。相關代號：2330、AMD、NVDA。風險訊號偏高，適合列入優先追蹤。",
+    "relatedTickers": [
+      "2330",
+      "AMD",
+      "NVDA"
+    ],
+    "claimIds": [
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-007",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-004"
+    ],
+    "riskLevel": "high"
+  },
+  {
+    "id": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-taiwan-market",
+    "rawItemId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+    "watchlistKey": "taiwan-market",
+    "title": "台灣市場 觀察：2330、TWD、USD",
+    "summary": "主張顯示可能的催化或偏多線索，涉及 新台幣、美元、TWD。相關代號：2330、TWD、USD。具備後續追蹤價值。",
+    "relatedTickers": [
+      "2330",
+      "TWD",
+      "USD"
+    ],
+    "claimIds": [
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-003",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-004",
+      "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361-claim-006"
+    ],
+    "riskLevel": "medium"
+  }
+]

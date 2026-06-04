@@ -1,0 +1,31 @@
+[
+  {
+    "id": "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-semis-ai",
+    "rawItemId": "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353",
+    "watchlistKey": "semis-ai",
+    "title": "半導體 / AI 觀察：2330、NVDA、TSM",
+    "summary": "主張顯示可能的催化或偏多線索，涉及 輝達、NVDA。相關代號：2330、NVDA、TSM。目前偏資訊整理，先保留觀察。",
+    "relatedTickers": [
+      "2330",
+      "NVDA",
+      "TSM"
+    ],
+    "claimIds": [
+      "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-claim-001"
+    ],
+    "riskLevel": "low"
+  },
+  {
+    "id": "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353-taiwan-market",
+    "rawItemId": "gooaye-2026-06-03-8c2cb9ef-82a5-46ec-bd46-1e213017a353",
+    "watchlistKey": "taiwan-market",
+    "title": "台灣市場 觀察：2330、TSM",
+    "summary": "主題索引以 AI、半導體、ETF、台股 為主，僅代表本集已萃取出的可檢索脈絡。相關代號：2330、TSM。目前偏資訊整理，先保留觀察。",
+    "relatedTickers": [
+      "2330",
+      "TSM"
+    ],
+    "claimIds": [],
+    "riskLevel": "low"
+  }
+]
