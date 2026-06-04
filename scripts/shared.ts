@@ -4,7 +4,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { sources, sourceById } from '../src/lib/sources'
 import type { DigestIndex, RawContentItem, SourceConfig, SummaryItem } from '../src/lib/types'
-import { buildQualitySummary } from './content-quality'
+import { buildQualitySummary, toZhTw } from './content-quality'
 
 export const rootDir = process.cwd()
 export const rawDir = path.join(rootDir, 'content/raw/items')
@@ -135,7 +135,7 @@ export function heuristicSummary(raw: RawContentItem, transcriptText?: string): 
     sourceId: raw.sourceId,
     sourceName,
     sourceSlug,
-    title: raw.title,
+    title: toZhTw(raw.title),
     url: raw.url,
     publishedAt: raw.publishedAt,
     summarizedAt: new Date().toISOString(),

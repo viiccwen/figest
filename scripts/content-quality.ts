@@ -24,6 +24,8 @@ export function toZhTw(input = '') {
   for (const [from, to] of entries) text = text.replaceAll(from, to)
   return text
     .replace(/,/g, '，')
+    .replace(/\s*\?/g, '？')
+    .replace(/\s*!/g, '！')
     .replace(/\s+([，。！？；：])/g, '$1')
     .replace(/([，。！？；：])\s+/g, '$1')
     .replace(/\s+/g, ' ')
@@ -67,10 +69,10 @@ export function buildQualitySummary(raw: { title: string; description?: string }
   const keyPoints = buildEditorialKeyPoints({ title, topics, assets, hasTranscript, picked, fallback })
 
   while (keyPoints.length < 3) {
-    keyPoints.push(keyPoints.length === 0 ? `本集主題為「${title}」。` : '目前可用內容有限，建議搭配原始節目確認完整脈絡。')
+    keyPoints.push(buildFallbackPoint(title, topics, keyPoints.length))
   }
 
-  const tldr = keyPoints[0]
+  const tldr = buildTldr(title, keyPoints, topics)
   const body = [
     `TL;DR：${tldr}`,
     '',
@@ -89,31 +91,73 @@ function buildEditorialKeyPoints(input: { title: string; topics: string[]; asset
   const points: string[] = []
   const titleText = toZhTw(title)
   const topicText = topics.length ? topics.slice(0, 4).join('、') : '本集主題'
+  const weakTitle = isWeakEpisodeTitle(titleText)
+  const evidencePoints = picked.map((chunk) => summarizeEvidenceChunk(chunk, topics)).filter(Boolean)
+  const uniqueEvidencePoints = [...new Set(evidencePoints)]
 
-  points.push(`本集聚焦「${titleText}」，可先從 ${topicText} 的角度理解內容主軸。`)
-
-  if (topics.includes('AI') || topics.includes('半導體')) {
-    points.push('AI 與半導體仍是市場討論核心，摘要建議關注資金是否集中在大型龍頭，或輪動到光通、PC、零組件等延伸題材。')
+  if (!weakTitle) {
+    points.push(`本集聚焦「${titleText}」，主軸可先放在 ${topicText}。`)
+  } else if (uniqueEvidencePoints[0]) {
+    points.push(uniqueEvidencePoints[0])
+  } else {
+    points.push(`本集主軸可先放在 ${topicText}。`)
   }
 
-  if (topics.includes('ETF') || topics.includes('總經') || titleText.includes('關稅')) {
-    points.push('總經與政策變數會影響風險偏好；若內容提到 ETF、關稅、利率或資金流，應搭配後續市場反應觀察，不宜只看單一標題。')
+  for (const point of uniqueEvidencePoints) {
+    if (points.length >= 4) break
+    if (!points.includes(point)) points.push(point)
   }
 
-  if (topics.includes('加密貨幣')) {
-    points.push('加密貨幣與比特幣 ETF 相關討論偏向高波動資產觀察，需留意資金流、技術位階與整體風險情緒。')
-  }
-
-  if (assets.length) {
+  if (assets.length && points.length < 4) {
     points.push(`節目中可追蹤的資產 / 公司包含：${assets.slice(0, 5).join('、')}；這裡僅作內容索引，不代表買賣建議。`)
+  }
+
+  if ((topics.includes('總經') || titleText.includes('關稅')) && points.length < 4) {
+    points.push('總經與政策變數會影響風險偏好；若內容提到關稅、利率或資金流，應搭配後續市場反應觀察。')
   }
 
   if (!hasTranscript || picked.length < 2) {
     const fallbackTitle = splitText(fallback)[0]
-    points.push(`目前可用內容有限，系統保守整理為 metadata 摘要；建議回原節目確認完整脈絡${fallbackTitle && fallbackTitle !== titleText ? `（可參考：${ensureSentence(toZhTw(fallbackTitle))}）` : '。'}`)
+    points.push(`目前可用內容有限，系統保守整理為標題 / show notes 摘要；建議回原節目確認完整脈絡${fallbackTitle && fallbackTitle !== titleText ? `（可參考：${ensureSentence(toZhTw(fallbackTitle))}）` : '。'}`)
   }
 
   return points.map(ensureSentence).filter(Boolean).slice(0, 4)
+}
+
+function buildTldr(title: string, keyPoints: string[], topics: string[]) {
+  const titleText = toZhTw(title)
+  if (!isWeakEpisodeTitle(titleText)) {
+    return `本集從 ${topics.slice(0, 3).join('、') || '主要財經議題'} 切入，重點是把標題事件放回資金流、產業鏈與風險管理脈絡中理解。`
+  }
+  const first = keyPoints[0]?.replace(/[。！？]$/, '')
+  return first ? `本集重點在於${first.replace(/^本集/, '')}，並搭配風險控管角度閱讀。` : '本集以可辨識主題做保守整理，重要細節請回原節目確認。'
+}
+
+function isWeakEpisodeTitle(title: string) {
+  return /^EP\d+\s*\|\s*\p{Extended_Pictographic}+$/u.test(title.trim()) || title.replace(/[\s\p{Extended_Pictographic}|。！？!?]/gu, '').length <= 6
+}
+
+function summarizeEvidenceChunk(chunk: string, topics: string[]) {
+  const text = toZhTw(chunk)
+  if (/融資|額度|維持率|借款|部位|加碼|槓桿|券商/.test(text)) return '節目提到部位、借款額度與維持率等操作細節，提醒在行情強勢時也要管理流動性與槓桿風險。'
+  if (/交易量|報酬率|方法論|四個數字|下得準|受傷/.test(text)) return '主持人把重點放在交易方法論，而不是單純給標的或數字；核心是建立可重複的判斷流程。'
+  if (/生活步調|儀式感|感受生命|專注在生活|節奏放慢|下背/.test(text)) return '本集前段從生活節奏與身體狀態切入，延伸到交易者如何降低急躁、保留觀察力與決策品質。'
+  if (/關稅|貿易|強迫勞動|稅率/.test(text)) return '本集把關稅與貿易政策視為重要變數，重點在政策理由、稅率變化與市場是否已提前反映。'
+  if (/資金|輪動|補漲|熱點|成交量|盤面/.test(text)) return '節目多次討論資金輪動與熱點切換，觀察重點是主流題材外溢、補漲族群與成交量能否延續。'
+  if (/AI|半導體|晶片|光通|ASIC|AIPC|PC|NVIDIA|輝達|台積電/.test(text)) return 'AI / 半導體仍是核心線索，但摘要重點不只看大型龍頭，也要觀察光通、AIPC、ASIC 與零組件等延伸需求。'
+  if (/比特幣|Bitcoin|BTC|加密|現貨/.test(text)) return '比特幣與加密資產相關討論偏向高波動風險線索，需同時觀察 ETF 資金流與整體風險情緒。'
+  if (/Google|Alphabet|谷歌|發債|增資|募資|估值/.test(text)) return '大型科技公司的發債、增資與估值變化是本集觀察點，會牽動市場對資金需求與追價空間的判斷。'
+  if (/ETF|巨獸|0050|006208/.test(text)) return 'ETF 規模化與資金集中效應是重要脈絡，需留意被動資金流入如何改變個股與市場結構。'
+  if (topics.includes('總經')) return '節目提到總經條件與市場情緒交互影響，後續應追蹤利率、通膨、就業與匯率等變數。'
+  return ''
+}
+
+function buildFallbackPoint(title: string, topics: string[], index: number) {
+  if (index === 0) return `本集主題為「${toZhTw(title)}」。`
+  if (topics.includes('AI') || topics.includes('半導體')) return '若要延伸追蹤，可把 AI 算力需求、半導體供應鏈與終端裝置復甦分開觀察。'
+  if (topics.includes('總經')) return '後續觀察重點包括利率、通膨、就業與匯率，避免只用單一事件解讀市場。'
+  if (topics.includes('台股')) return '台股相關討論可搭配成交量、族群輪動與權值股表現交叉檢查。'
+  return '摘要保守整理可辨識主題，重要細節仍建議回原節目確認。'
 }
 
 function findFirstPromoIndex(text: string) {

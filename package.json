@@ -12,6 +12,7 @@
     "transcribe": "tsx scripts/transcribe.ts",
     "summarize": "tsx scripts/summarize.ts",
     "digest": "tsx scripts/build-digest.ts",
+    "quality:content": "tsx scripts/check-content-quality.ts",
     "pipeline": "pnpm ingest && pnpm transcribe && pnpm summarize && pnpm digest",
     "pipeline:metadata": "pnpm ingest && pnpm summarize && pnpm digest",
     "seed:demo": "tsx scripts/seed-demo.ts"

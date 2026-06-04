@@ -44,6 +44,7 @@ jobs:
             pnpm pipeline:metadata
           fi
       - run: pnpm lint
+      - run: pnpm quality:content
       - run: pnpm build
       - name: Commit generated digest data
         run: |
