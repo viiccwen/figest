@@ -8,7 +8,7 @@ import { ensureDirs, rawDir, readJson, transcriptDir, writeJson } from './shared
 
 const execFileAsync = promisify(execFile)
 
-const limitArg = Number(process.argv.find((arg) => arg.startsWith('--limit='))?.split('=')[1] ?? Number.POSITIVE_INFINITY)
+const limitArg = Number(process.argv.find((arg) => arg.startsWith('--limit='))?.split('=')[1] ?? process.env.WHISPER_TRANSCRIBE_LIMIT ?? 2)
 const onlySource = process.argv.find((arg) => arg.startsWith('--source='))?.split('=')[1]
 const force = process.argv.includes('--force')
 
@@ -27,17 +27,16 @@ if (!apiKey) {
 await ensureDirs()
 
 const rawFiles = (await readdir(rawDir)).filter((file) => file.endsWith('.json'))
+const rawItems = await Promise.all(rawFiles.map((file) => readJson<RawContentItem>(path.join(rawDir, file))))
+const transcribableItems = rawItems
+  .filter((raw) => raw.audioUrl)
+  .filter((raw) => !onlySource || raw.sourceId === onlySource)
+  .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
 let done = 0
-let skipped = 0
+let skipped = rawItems.length - transcribableItems.length
 
-for (const file of rawFiles) {
+for (const raw of transcribableItems) {
   if (done >= limitArg) break
-  const raw = await readJson<RawContentItem>(path.join(rawDir, file))
-  if (onlySource && raw.sourceId !== onlySource) continue
-  if (!raw.audioUrl) {
-    skipped += 1
-    continue
-  }
 
   const outputPath = path.join(transcriptDir, `${raw.id}.json`)
   if (!force) {
