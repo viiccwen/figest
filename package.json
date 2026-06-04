@@ -19,6 +19,7 @@
     "digest": "tsx scripts/build-digest.ts",
     "quality:content": "tsx scripts/check-content-quality.ts",
     "test:grounded-summary": "tsx scripts/grounded-summary.test.ts",
+    "test:audio-chunks": "tsx scripts/audio-chunk-plan.test.ts",
     "pipeline": "pnpm ingest && pnpm transcribe && pnpm normalize:transcripts && pnpm segment:transcripts && pnpm extract:entities && pnpm extract:claims && pnpm summarize && pnpm digest && pnpm extract:insights",
     "pipeline:metadata": "pnpm ingest && pnpm summarize && pnpm digest && pnpm extract:insights",
     "seed:demo": "tsx scripts/seed-demo.ts"

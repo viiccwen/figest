@@ -51,13 +51,24 @@ YouTube Atom can transiently return 404/5xx, so the ingestion script retries and
 
 Current MVP uses title + public show notes / media description and intentionally generates conservative summaries. It does **not** republish full transcripts.
 
-When Whisper is enabled, podcast audio is converted by `ffmpeg` into small mono MP3 segments and sent to an OpenAI-compatible `/audio/transcriptions` endpoint. Set the key as a GitHub Actions secret and the endpoint as a GitHub Actions variable:
+When Whisper is enabled, podcast audio is converted by `ffmpeg` into small mono MP3 chunks and sent to an OpenAI-compatible `/audio/transcriptions` endpoint. By default chunks use fixed `AUDIO_SEGMENT_SECONDS` / `WHISPER_SEGMENT_SECONDS` boundaries. Optional silence-aware chunking can be enabled without extra ML dependencies; it runs ffmpeg `silencedetect` first, prefers nearby silence boundaries, and falls back to fixed chunks if duration probing/silence detection fails or useful silence points are too sparse. Set the key as a GitHub Actions secret and the endpoint as a GitHub Actions variable:
 
 ```bash
 WHISPER_API_KEY=...
 WHISPER_API_URL=https://api.openai.com/v1/audio/transcriptions
 WHISPER_MODEL=whisper-1
 WHISPER_LANGUAGE=zh
+
+# Audio preprocessing / chunking
+AUDIO_TARGET_SAMPLE_RATE=16000
+AUDIO_TARGET_BITRATE=32k
+AUDIO_SEGMENT_SECONDS=900          # fixed fallback and default max chunk size
+ENABLE_AUDIO_VAD=false             # set true to prefer silence boundaries
+AUDIO_VAD_MIN_SILENCE_SECONDS=0.6
+AUDIO_VAD_SILENCE_THRESHOLD_DB=-35dB
+AUDIO_MIN_CHUNK_SECONDS=60
+AUDIO_MAX_CHUNK_SECONDS=900
+AUDIO_CHUNK_BOUNDARY_TOLERANCE_SECONDS=30
 ```
 
 The scheduled workflow enables transcription when `WHISPER_API_KEY` is configured. `WHISPER_API_URL` is optional and defaults to OpenAI's transcription endpoint; without an API key, the workflow safely falls back to metadata-only digest generation.

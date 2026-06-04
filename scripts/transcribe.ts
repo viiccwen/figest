@@ -3,6 +3,7 @@ import os from 'node:os'
 import path from 'node:path'
 import type { AudioManifest, RawContentItem, RawTranscriptArtifact, TranscriptItem, TranscriptSegment } from '../src/lib/types'
 import { inspectAudio } from './audio/inspect'
+import { planFixedChunks } from './audio/chunk-plan'
 import { getAudioPreprocessingConfig, preprocessAudio } from './audio/preprocess'
 import { audioManifestDir, ensureDirs, rawDir, rawTranscriptDir, readJson, transcriptDir, writeJson } from './shared'
 import { createWhisperCompatibleProvider } from './transcription/whisper-compatible'
@@ -58,10 +59,18 @@ for (const raw of transcribableItems) {
   try {
     const audioInspection = await inspectAudio(raw.audioUrl)
     const segmentPattern = path.join(tempDir, 'part-%03d.mp3')
-    await preprocessAudio(raw.audioUrl, segmentPattern, preprocessing)
+    const preprocessingResult = await preprocessAudio(raw.audioUrl, segmentPattern, preprocessing, audioInspection.durationSeconds)
 
     const audioSegments = (await readdir(tempDir)).filter((name) => name.endsWith('.mp3')).sort()
     if (audioSegments.length === 0) throw new Error('ffmpeg produced no audio segments')
+
+    const plannedChunks = resolveChunkMetadata(audioSegments.length, preprocessingResult.chunks, audioInspection.durationSeconds, preprocessing.segmentSeconds)
+    const preprocessingWarnings = [...preprocessingResult.warnings]
+    if (preprocessingResult.chunks.length > 0 && preprocessingResult.chunks.length !== audioSegments.length) {
+      preprocessingWarnings.push(
+        `chunk metadata count mismatch: planned ${preprocessingResult.chunks.length}, ffmpeg produced ${audioSegments.length}; using monotonic fallback metadata`,
+      )
+    }
 
     const audioManifest: AudioManifest = {
       id: raw.id,
@@ -74,7 +83,7 @@ for (const raw of transcribableItems) {
         codec: audioInspection.codec,
         sampleRate: audioInspection.sampleRate,
         channels: audioInspection.channels,
-        warnings: audioInspection.warnings,
+        warnings: [...audioInspection.warnings, ...preprocessingWarnings],
       },
       preprocessing: {
         targetSampleRate: preprocessing.targetSampleRate,
@@ -82,17 +91,32 @@ for (const raw of transcribableItems) {
         bitrate: preprocessing.bitrate,
         segmentSeconds: preprocessing.segmentSeconds,
         vadEnabled: preprocessing.vadEnabled,
+        strategy: preprocessingResult.strategy,
+        minChunkSeconds: preprocessing.minChunkSeconds,
+        maxChunkSeconds: preprocessing.maxChunkSeconds,
+        boundaryToleranceSeconds: preprocessing.boundaryToleranceSeconds,
+        vadMinSilenceDurationSeconds: preprocessing.vadMinSilenceDurationSeconds,
+        vadSilenceThresholdDb: preprocessing.vadSilenceThresholdDb,
+        warnings: preprocessingWarnings,
       },
+      chunks: plannedChunks.map((chunk, index) => ({
+        index,
+        file: audioSegments[index],
+        start: chunk.start,
+        end: chunk.end,
+        boundary: chunk.boundary,
+      })),
     }
     await writeJson(audioManifestPath, audioManifest)
 
     const texts: string[] = []
     const transcriptSegments: TranscriptSegment[] = []
-    const warnings: string[] = [...audioInspection.warnings]
+    const warnings: string[] = [...audioInspection.warnings, ...preprocessingWarnings]
     for (const [index, segment] of audioSegments.entries()) {
       console.log(`  segment ${index + 1}/${audioSegments.length}`)
-      const segmentStart = index * preprocessing.segmentSeconds
-      const segmentEnd = (index + 1) * preprocessing.segmentSeconds
+      const chunk = plannedChunks[index]
+      const segmentStart = chunk.start
+      const segmentEnd = chunk.end
       const segmentId = `${raw.id}-part-${index + 1}`
       const result = await provider.transcribe(path.join(tempDir, segment), {
         model,
@@ -153,6 +177,30 @@ console.log(`Transcribed ${done} item(s), skipped ${skipped} item(s).`)
 
 function synthesizeSegment(id: string, start: number, end: number, text: string): TranscriptSegment {
   return { id, start, end, text }
+}
+
+function resolveChunkMetadata(
+  segmentCount: number,
+  plannedChunks: Array<{ start: number; end: number; boundary: 'silence' | 'fixed' | 'duration' }>,
+  durationSeconds: number | undefined,
+  segmentSeconds: number,
+): Array<{ start: number; end: number; boundary: 'silence' | 'fixed' | 'duration' }> {
+  if (plannedChunks.length === segmentCount && isMonotonic(plannedChunks)) return plannedChunks
+
+  if (durationSeconds && Number.isFinite(durationSeconds) && durationSeconds > 0) {
+    const fixed = planFixedChunks(durationSeconds, segmentSeconds)
+    if (fixed.length === segmentCount) return fixed
+  }
+
+  return Array.from({ length: segmentCount }, (_, index) => ({
+    start: index * segmentSeconds,
+    end: (index + 1) * segmentSeconds,
+    boundary: 'fixed' as const,
+  }))
+}
+
+function isMonotonic(chunks: Array<{ start: number; end: number }>): boolean {
+  return chunks.every((chunk, index) => chunk.end > chunk.start && (index === 0 || chunk.start >= chunks[index - 1].end))
 }
 
 function hasAudioUrl(raw: RawContentItem): raw is RawContentItemWithAudio {

@@ -58,7 +58,21 @@ export type AudioManifest = {
     bitrate: string
     segmentSeconds: number
     vadEnabled: boolean
+    strategy?: 'fixed' | 'silence-aware'
+    minChunkSeconds?: number
+    maxChunkSeconds?: number
+    boundaryToleranceSeconds?: number
+    vadMinSilenceDurationSeconds?: number
+    vadSilenceThresholdDb?: string
+    warnings?: string[]
   }
+  chunks?: Array<{
+    index: number
+    file: string
+    start: number
+    end: number
+    boundary: 'silence' | 'fixed' | 'duration'
+  }>
 }
 
 export type TranscriptWord = {
