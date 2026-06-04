@@ -28,6 +28,9 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile --config.minimum-release-age=0
+      - name: Install audio tooling
+        if: ${{ secrets.WHISPER_API_KEY != '' }}
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - name: Run digest pipeline
         env:
           WHISPER_API_KEY: ${{ secrets.WHISPER_API_KEY }}
