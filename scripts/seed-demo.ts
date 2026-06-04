@@ -19,11 +19,11 @@ const demoItems: RawContentItem[] = [
     id: 'yutinghao-demo-morning-market',
     sourceId: 'yutinghao',
     externalId: 'demo-yutinghao-morning-market',
-    medium: 'youtube',
+    medium: 'podcast',
     title: 'Demo 早晨財經速解讀：關稅、降息與美股輪動',
     description: '今日重點包含美股科技股輪動、Fed 降息預期、關稅政策對供應鏈的影響，以及 ETF 巨獸化後對市場波動的可能改變。',
     publishedAt: now,
-    url: 'https://www.youtube.com/channel/UC0lbAQVpenvfA2QqzsRtL_g',
+    url: 'https://soundcloud.com/l9j0totnyhgh',
     fetchedAt: now,
   },
 ]

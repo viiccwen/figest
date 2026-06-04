@@ -55,7 +55,7 @@ function HomePage() {
           <Badge tone="violet"><Sparkles className="mr-1.5 size-3" /> Automated daily digest</Badge>
           <div className="space-y-4">
             <h1 className="max-w-3xl text-5xl font-black tracking-[-0.04em] text-zinc-950 sm:text-7xl">每日財經節目摘要，自動生成。</h1>
-            <p className="max-w-2xl text-base leading-8 text-zinc-600 sm:text-lg">追蹤股癌與財經皓角公開內容，整理 TL;DR、重點、主題與風險提醒。第一版先以 RSS / YouTube feed + show notes 產生保守摘要，後續可接 Whisper 轉錄完整音訊。</p>
+            <p className="max-w-2xl text-base leading-8 text-zinc-600 sm:text-lg">追蹤股癌與財經皓角公開 podcast 內容，整理 TL;DR、重點、主題與風險提醒。第一版先以 RSS + show notes 產生保守摘要，後續可接 Whisper 轉錄完整音訊。</p>
           </div>
         </div>
         <Card className="animate-fade-up p-5 [animation-delay:120ms]">
@@ -142,7 +142,7 @@ function SummaryDetailPage() {
 }
 
 function AboutPage() {
-  return <InfoPage title="About" body={[ '這是一個自動化財經內容 digest MVP：排程抓取 RSS / YouTube feed，正規化成 raw content，再生成結構化摘要 JSON，最後由 Vite 靜態網站呈現。', '目前第一版以公開 metadata / show notes 做保守摘要；若要提高品質，可以加上 YouTube transcript 與 podcast Whisper 轉錄。', '設計原則是 attribution first：每篇都連回原始內容，摘要只做學習與資訊整理，不取代原節目。' ]} />
+  return <InfoPage title="About" body={[ '這是一個自動化財經內容 digest MVP：排程抓取 podcast RSS，正規化成 raw content，再生成結構化摘要 JSON，最後由 Vite 靜態網站呈現。', '目前第一版以公開 metadata / show notes 做保守摘要；若要提高品質，可以加上 podcast Whisper 轉錄。', '設計原則是 attribution first：每篇都連回原始內容，摘要只做學習與資訊整理，不取代原節目。' ]} />
 }
 
 function DisclaimerPage() {

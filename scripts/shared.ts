@@ -147,7 +147,7 @@ export function heuristicSummary(raw: RawContentItem, transcriptText?: string): 
     summarizedAt: new Date().toISOString(),
     excerpt: keyPoints.join(' '),
     keyPoints,
-    body: `${keyPoints.join('\n\n')}\n\n這份摘要由自動化管線產生，會優先避免補充原始文字沒有提供的數字、價格或投資結論。${hasTranscript ? '本篇已使用 Whisper 轉錄文字作為摘要基礎，但仍需回原節目查證。' : '若之後啟用 Whisper / YouTube transcript，系統可用完整內容重新生成更細的章節摘要。'}`,
+    body: `${keyPoints.join('\n\n')}\n\n這份摘要由自動化管線產生，會優先避免補充原始文字沒有提供的數字、價格或投資結論。${hasTranscript ? '本篇已使用 Whisper 轉錄文字作為摘要基礎，但仍需回原節目查證。' : '若之後啟用 Whisper 轉錄，系統可用完整內容重新生成更細的章節摘要。'}`,
     topics,
     mentionedAssets: inferAssets(`${raw.title} ${text}`),
     sentiment: '資訊不足',
