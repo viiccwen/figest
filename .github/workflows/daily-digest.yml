@@ -13,6 +13,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -37,8 +38,14 @@ jobs:
           WHISPER_MODEL: ${{ vars.WHISPER_MODEL }}
           WHISPER_LANGUAGE: ${{ vars.WHISPER_LANGUAGE || 'zh' }}
           WHISPER_TRANSCRIBE_LIMIT: ${{ vars.WHISPER_TRANSCRIBE_LIMIT || '2' }}
+          WHISPER_SEGMENT_SECONDS: ${{ vars.WHISPER_SEGMENT_SECONDS }}
+          WHISPER_AUDIO_BITRATE: ${{ vars.WHISPER_AUDIO_BITRATE }}
+          AUDIO_SEGMENT_SECONDS: ${{ vars.AUDIO_SEGMENT_SECONDS || '900' }}
+          AUDIO_TARGET_BITRATE: ${{ vars.AUDIO_TARGET_BITRATE || '32k' }}
+          AUDIO_TARGET_SAMPLE_RATE: ${{ vars.AUDIO_TARGET_SAMPLE_RATE || '16000' }}
+          AUDIO_TARGET_CHANNELS: ${{ vars.AUDIO_TARGET_CHANNELS || '1' }}
         run: |
-          if [ -n "$WHISPER_API_KEY" ] && [ -n "$WHISPER_API_URL" ]; then
+          if [ -n "$WHISPER_API_KEY" ]; then
             pnpm pipeline
           else
             pnpm pipeline:metadata

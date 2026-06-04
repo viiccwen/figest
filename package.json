@@ -10,10 +10,12 @@
     "preview": "vite preview",
     "ingest": "tsx scripts/ingest.ts",
     "transcribe": "tsx scripts/transcribe.ts",
+    "normalize:transcripts": "tsx scripts/transcript/normalize.ts",
+    "segment:transcripts": "tsx scripts/transcript/segment.ts",
     "summarize": "tsx scripts/summarize.ts",
     "digest": "tsx scripts/build-digest.ts",
     "quality:content": "tsx scripts/check-content-quality.ts",
-    "pipeline": "pnpm ingest && pnpm transcribe && pnpm summarize && pnpm digest",
+    "pipeline": "pnpm ingest && pnpm transcribe && pnpm normalize:transcripts && pnpm segment:transcripts && pnpm summarize && pnpm digest",
     "pipeline:metadata": "pnpm ingest && pnpm summarize && pnpm digest",
     "seed:demo": "tsx scripts/seed-demo.ts"
   },

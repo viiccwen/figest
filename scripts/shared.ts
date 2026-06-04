@@ -8,14 +8,36 @@ import { buildQualitySummary, toZhTw } from './content-quality'
 
 export const rootDir = process.cwd()
 export const rawDir = path.join(rootDir, 'content/raw/items')
+export const audioManifestDir = path.join(rootDir, 'content/audio-manifests/items')
 export const transcriptDir = path.join(rootDir, 'content/transcripts/items')
+export const rawTranscriptDir = path.join(rootDir, 'content/transcripts/raw')
+export const normalizedTranscriptDir = path.join(rootDir, 'content/transcripts/normalized')
+export const segmentDir = path.join(rootDir, 'content/segments/items')
+export const entityDir = path.join(rootDir, 'content/entities/items')
+export const claimDir = path.join(rootDir, 'content/claims/items')
+export const insightDir = path.join(rootDir, 'content/insights/items')
 export const summaryDir = path.join(rootDir, 'content/summaries/items')
 export const generatedDir = path.join(rootDir, 'src/data/generated')
 export const publicDataDir = path.join(rootDir, 'public/data/summaries')
 export const disclaimer = '本網站摘要由 AI 自動生成，僅供資訊整理與學習參考，不構成投資建議；請以原始節目內容與正式資訊為準。'
 
 export async function ensureDirs() {
-  await Promise.all([rawDir, transcriptDir, summaryDir, generatedDir, publicDataDir].map((dir) => mkdir(dir, { recursive: true })))
+  await Promise.all(
+    [
+      rawDir,
+      audioManifestDir,
+      transcriptDir,
+      rawTranscriptDir,
+      normalizedTranscriptDir,
+      segmentDir,
+      entityDir,
+      claimDir,
+      insightDir,
+      summaryDir,
+      generatedDir,
+      publicDataDir,
+    ].map((dir) => mkdir(dir, { recursive: true })),
+  )
 }
 
 export async function writeJson(filePath: string, data: unknown) {

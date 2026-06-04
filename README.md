@@ -60,7 +60,7 @@ WHISPER_MODEL=whisper-1
 WHISPER_LANGUAGE=zh
 ```
 
-The scheduled workflow only enables transcription when both `WHISPER_API_KEY` and `WHISPER_API_URL` are configured; otherwise it safely falls back to metadata-only digest generation.
+The scheduled workflow enables transcription when `WHISPER_API_KEY` is configured. `WHISPER_API_URL` is optional and defaults to OpenAI's transcription endpoint; without an API key, the workflow safely falls back to metadata-only digest generation.
 
 Future upgrade path:
 

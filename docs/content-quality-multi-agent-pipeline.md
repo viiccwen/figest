@@ -23,7 +23,7 @@ Raw RSS / Audio
    - 僅保存 raw JSON，不直接產生前端資料。
 
 2. **Transcription Agent**
-   - 有 `WHISPER_API_KEY` + `WHISPER_API_URL` 才轉錄音訊。
+   - 有 `WHISPER_API_KEY` 才轉錄音訊；`WHISPER_API_URL` 可選，未設定時使用預設 Whisper-compatible endpoint。
    - 限制每日轉錄數量，避免 GitHub Actions 成本失控。
    - 產物標註 model、language、segmentCount、transcribedAt。
 
