@@ -42,6 +42,8 @@ jobs:
           fi
       - run: pnpm lint
       - run: pnpm build
+        env:
+          VITE_BASE_PATH: /finance-digest/
       - name: Commit generated digest data
         run: |
           git config user.name "github-actions[bot]"
