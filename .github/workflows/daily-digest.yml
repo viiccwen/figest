@@ -1,0 +1,57 @@
+name: Daily Finance Digest
+
+on:
+  schedule:
+    - cron: "30 22 * * *" # 06:30 Asia/Taipei
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --config.minimum-release-age=0
+      - name: Run digest pipeline
+        env:
+          WHISPER_API_KEY: ${{ secrets.WHISPER_API_KEY }}
+          WHISPER_API_URL: ${{ vars.WHISPER_API_URL || 'https://api.openai.com/v1/audio/transcriptions' }}
+          WHISPER_MODEL: ${{ vars.WHISPER_MODEL || 'whisper-1' }}
+          WHISPER_LANGUAGE: ${{ vars.WHISPER_LANGUAGE || 'zh' }}
+        run: |
+          if [ -n "$WHISPER_API_KEY" ]; then
+            pnpm pipeline
+          else
+            pnpm pipeline:metadata
+          fi
+      - run: pnpm lint
+      - run: pnpm build
+      - name: Commit generated digest data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/ src/data/generated/ public/data/summaries/
+          git commit -m "chore: update finance digest" || echo "No digest changes"
+          git push || true
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

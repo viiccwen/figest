@@ -1,0 +1,185 @@
+import { XMLParser } from 'fast-xml-parser'
+import { convert } from 'html-to-text'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import path from 'node:path'
+import { sources, sourceById } from '../src/lib/sources'
+import type { DigestIndex, RawContentItem, SourceConfig, SummaryItem } from '../src/lib/types'
+
+export const rootDir = process.cwd()
+export const rawDir = path.join(rootDir, 'content/raw/items')
+export const transcriptDir = path.join(rootDir, 'content/transcripts/items')
+export const summaryDir = path.join(rootDir, 'content/summaries/items')
+export const generatedDir = path.join(rootDir, 'src/data/generated')
+export const publicDataDir = path.join(rootDir, 'public/data/summaries')
+export const disclaimer = '本網站摘要由 AI 自動生成，僅供資訊整理與學習參考，不構成投資建議；請以原始節目內容與正式資訊為準。'
+
+export async function ensureDirs() {
+  await Promise.all([rawDir, transcriptDir, summaryDir, generatedDir, publicDataDir].map((dir) => mkdir(dir, { recursive: true })))
+}
+
+export async function writeJson(filePath: string, data: unknown) {
+  await mkdir(path.dirname(filePath), { recursive: true })
+  await writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`)
+}
+
+export async function readJson<T>(filePath: string) {
+  return JSON.parse(await readFile(filePath, 'utf8')) as T
+}
+
+export function slugify(value: string) {
+  return value.toLowerCase().replace(/https?:\/\//g, '').replace(/[^a-z0-9\u4e00-\u9fa5]+/gi, '-').replace(/^-|-$/g, '').slice(0, 80)
+}
+
+export function cleanText(value = '') {
+  return convert(value, { wordwrap: false, selectors: [{ selector: 'a', options: { ignoreHref: true } }] }).replace(/\s+/g, ' ').trim()
+}
+
+function itemArray<T>(value: T | T[] | undefined): T[] {
+  if (!value) return []
+  return Array.isArray(value) ? value : [value]
+}
+
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' ? (value as Record<string, unknown>) : {}
+}
+
+function textValue(value: unknown) {
+  if (value && typeof value === 'object' && '#text' in value) return String((value as Record<string, unknown>)['#text'])
+  return value == null ? '' : String(value)
+}
+
+export async function fetchFeed(source: SourceConfig) {
+  const urls = [source.feedUrl, ...(source.fallbackFeedUrls ?? [])]
+  const errors: string[] = []
+  for (const url of urls) {
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      try {
+        const response = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 finance-digest/0.1' } })
+        if (!response.ok) throw new Error(`${response.status}`)
+        const xml = await response.text()
+        const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text' })
+        return parser.parse(xml)
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error)
+        errors.push(`${url} attempt ${attempt}: ${message}`)
+        await new Promise((resolve) => setTimeout(resolve, attempt * 400))
+      }
+    }
+  }
+  throw new Error(`Fetch failed for ${source.name}: ${errors.join('; ')}`)
+}
+
+export async function parseSource(source: SourceConfig, limit = 5): Promise<RawContentItem[]> {
+  const parsed = await fetchFeed(source)
+  const fetchedAt = new Date().toISOString()
+  if (source.kind === 'podcast-rss' || parsed.rss?.channel?.item) {
+    return itemArray(parsed.rss?.channel?.item).slice(0, limit).map((value: unknown) => {
+      const item = asRecord(value)
+      const enclosure = asRecord(item.enclosure)
+      const image = asRecord(item['itunes:image'])
+      const externalId = textValue(item.guid || item.link || item.title)
+      const publishedAt = new Date(String(item.pubDate || fetchedAt)).toISOString()
+      const id = `${source.id}-${publishedAt.slice(0, 10)}-${slugify(externalId)}`
+      return {
+        id,
+        sourceId: source.id,
+        externalId,
+        medium: 'podcast',
+        title: String(item.title || 'Untitled episode'),
+        description: cleanText(String(item.description || item['content:encoded'] || '')),
+        publishedAt,
+        url: String(item.link || source.homepage),
+        audioUrl: textValue(enclosure['@_url']) || undefined,
+        imageUrl: textValue(image['@_href']) || undefined,
+        fetchedAt,
+      }
+    })
+  }
+
+  return itemArray(parsed.feed?.entry).slice(0, limit).map((value: unknown) => {
+    const entry = asRecord(value)
+    const externalId = String(entry['yt:videoId'] || entry.id || entry.title)
+    const publishedAt = new Date(String(entry.published || entry.updated || fetchedAt)).toISOString()
+    const id = `${source.id}-${publishedAt.slice(0, 10)}-${slugify(externalId)}`
+    const media = asRecord(entry['media:group'])
+    const link = asRecord(entry.link)
+    const thumbnail = asRecord(media['media:thumbnail'])
+    return {
+      id,
+      sourceId: source.id,
+      externalId,
+      medium: 'youtube',
+      title: String(entry.title || 'Untitled video'),
+      description: cleanText(String(media['media:description'] || '')),
+      publishedAt,
+      url: String(link['@_href'] || `https://www.youtube.com/watch?v=${externalId}`),
+      imageUrl: textValue(thumbnail['@_url']) || undefined,
+      fetchedAt,
+    }
+  })
+}
+
+export function heuristicSummary(raw: RawContentItem, transcriptText?: string): SummaryItem {
+  const source = sourceById(raw.sourceId)
+  const sourceName = source?.name ?? raw.sourceId
+  const sourceSlug = source?.slug ?? raw.sourceId
+  const hasTranscript = Boolean(transcriptText?.trim())
+  const text = hasTranscript ? transcriptText!.trim() : raw.description || raw.title
+  const fragments = text.split(/[。！？!?；;\n]/).map((part) => part.trim()).filter(Boolean)
+  const topics = inferTopics(`${raw.title} ${text}`)
+  const keyPoints = [
+    fragments[0] || `本集標題聚焦「${raw.title}」。`,
+    fragments[1] || (hasTranscript ? '逐字稿內容較短，建議回原始內容確認完整語境。' : '目前 MVP 以公開 feed metadata / show notes 做保守整理，尚未接完整逐字稿。'),
+    topics.length ? `可先追蹤的主題包含：${topics.slice(0, 4).join('、')}。` : '建議點回原始內容確認完整脈絡。',
+  ]
+  const sourceTextQuality = hasTranscript ? 'transcript' : text.length > 240 ? 'show-notes' : 'metadata-only'
+  const risks = hasTranscript
+    ? ['逐字稿由 Whisper API 產生，仍可能有聽寫錯誤或斷句誤差。', '財經節目內容常含主持人觀點與情境討論，請勿視為買賣建議。']
+    : ['目前資料來源可能只有標題與 show notes，摘要完整度有限。', '財經節目內容常含主持人觀點與情境討論，請勿視為買賣建議。']
+  return {
+    id: raw.id,
+    sourceId: raw.sourceId,
+    sourceName,
+    sourceSlug,
+    title: raw.title,
+    url: raw.url,
+    publishedAt: raw.publishedAt,
+    summarizedAt: new Date().toISOString(),
+    excerpt: keyPoints.join(' '),
+    keyPoints,
+    body: `${keyPoints.join('\n\n')}\n\n這份摘要由自動化管線產生，會優先避免補充原始文字沒有提供的數字、價格或投資結論。${hasTranscript ? '本篇已使用 Whisper 轉錄文字作為摘要基礎，但仍需回原節目查證。' : '若之後啟用 Whisper / YouTube transcript，系統可用完整內容重新生成更細的章節摘要。'}`,
+    topics,
+    mentionedAssets: inferAssets(`${raw.title} ${text}`),
+    sentiment: '資訊不足',
+    risks,
+    sourceTextQuality,
+  }
+}
+
+function inferTopics(text: string) {
+  const dictionary: Record<string, string[]> = {
+    AI: ['AI', '人工智慧', '輝達', 'NVIDIA'],
+    ETF: ['ETF'],
+    台股: ['台股', '台積電', '加權'],
+    美股: ['美股', 'Nasdaq', 'S&P', '標普'],
+    總經: ['通膨', '利率', 'Fed', '降息', '關稅', '匯率'],
+    半導體: ['半導體', '晶片', '台積電', '輝達'],
+    加密貨幣: ['比特幣', 'Bitcoin', 'BTC', '加密'],
+  }
+  return Object.entries(dictionary).filter(([, keys]) => keys.some((key) => text.includes(key))).map(([topic]) => topic)
+}
+
+function inferAssets(text: string) {
+  const assets = ['台積電', 'NVIDIA', '輝達', 'Bitcoin', 'BTC', '0050', '006208']
+  return assets.filter((asset) => text.includes(asset))
+}
+
+export function sortSummaries(items: SummaryItem[]) {
+  return [...items].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
+}
+
+export function buildIndex(summaries: SummaryItem[]): DigestIndex {
+  return { generatedAt: new Date().toISOString(), timezone: 'Asia/Taipei', disclaimer, summaries: sortSummaries(summaries) }
+}
+
+export { sources }
