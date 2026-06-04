@@ -62,17 +62,14 @@ export function buildQualitySummary(raw: { title: string; description?: string }
 
   const picked = pickRepresentativeChunks(chunks, `${title} ${cleaned}`)
   const fallback = stripPromotionalContent(raw.description || title) || title
-  const keyPoints = (picked.length ? picked : splitText(fallback).slice(0, 3))
-    .map((point) => ensureSentence(toZhTw(point)))
-    .filter(Boolean)
-    .slice(0, 4)
+  const topics = inferTopics(`${title} ${cleaned}`)
+  const assets = inferAssets(`${title} ${cleaned}`)
+  const keyPoints = buildEditorialKeyPoints({ title, topics, assets, hasTranscript, picked, fallback })
 
   while (keyPoints.length < 3) {
     keyPoints.push(keyPoints.length === 0 ? `本集主題為「${title}」。` : '目前可用內容有限，建議搭配原始節目確認完整脈絡。')
   }
 
-  const topics = inferTopics(`${title} ${cleaned}`)
-  const assets = inferAssets(`${title} ${cleaned}`)
   const tldr = keyPoints[0]
   const body = [
     `TL;DR：${tldr}`,
@@ -85,6 +82,38 @@ export function buildQualitySummary(raw: { title: string; description?: string }
   ].join('\n')
 
   return { cleanedText: cleaned, keyPoints, body, excerpt: keyPoints.join(' '), topics, mentionedAssets: assets }
+}
+
+function buildEditorialKeyPoints(input: { title: string; topics: string[]; assets: string[]; hasTranscript: boolean; picked: string[]; fallback: string }) {
+  const { title, topics, assets, hasTranscript, picked, fallback } = input
+  const points: string[] = []
+  const titleText = toZhTw(title)
+  const topicText = topics.length ? topics.slice(0, 4).join('、') : '本集主題'
+
+  points.push(`本集聚焦「${titleText}」，可先從 ${topicText} 的角度理解內容主軸。`)
+
+  if (topics.includes('AI') || topics.includes('半導體')) {
+    points.push('AI 與半導體仍是市場討論核心，摘要建議關注資金是否集中在大型龍頭，或輪動到光通、PC、零組件等延伸題材。')
+  }
+
+  if (topics.includes('ETF') || topics.includes('總經') || titleText.includes('關稅')) {
+    points.push('總經與政策變數會影響風險偏好；若內容提到 ETF、關稅、利率或資金流，應搭配後續市場反應觀察，不宜只看單一標題。')
+  }
+
+  if (topics.includes('加密貨幣')) {
+    points.push('加密貨幣與比特幣 ETF 相關討論偏向高波動資產觀察，需留意資金流、技術位階與整體風險情緒。')
+  }
+
+  if (assets.length) {
+    points.push(`節目中可追蹤的資產 / 公司包含：${assets.slice(0, 5).join('、')}；這裡僅作內容索引，不代表買賣建議。`)
+  }
+
+  if (!hasTranscript || picked.length < 2) {
+    const fallbackTitle = splitText(fallback)[0]
+    points.push(`目前可用內容有限，系統保守整理為 metadata 摘要；建議回原節目確認完整脈絡${fallbackTitle && fallbackTitle !== titleText ? `（可參考：${ensureSentence(toZhTw(fallbackTitle))}）` : '。'}`)
+  }
+
+  return points.map(ensureSentence).filter(Boolean).slice(0, 4)
 }
 
 function findFirstPromoIndex(text: string) {
