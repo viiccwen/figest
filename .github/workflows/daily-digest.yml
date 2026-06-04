@@ -33,12 +33,12 @@ jobs:
       - name: Run digest pipeline
         env:
           WHISPER_API_KEY: ${{ secrets.WHISPER_API_KEY }}
-          WHISPER_API_URL: ${{ vars.WHISPER_API_URL || 'https://api.openai.com/v1/audio/transcriptions' }}
+          WHISPER_API_URL: ${{ vars.WHISPER_API_URL }}
           WHISPER_MODEL: ${{ vars.WHISPER_MODEL || 'whisper-1' }}
           WHISPER_LANGUAGE: ${{ vars.WHISPER_LANGUAGE || 'zh' }}
           WHISPER_TRANSCRIBE_LIMIT: ${{ vars.WHISPER_TRANSCRIBE_LIMIT || '2' }}
         run: |
-          if [ -n "$WHISPER_API_KEY" ]; then
+          if [ -n "$WHISPER_API_KEY" ] && [ -n "$WHISPER_API_URL" ]; then
             pnpm pipeline
           else
             pnpm pipeline:metadata

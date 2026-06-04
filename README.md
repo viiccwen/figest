@@ -51,7 +51,7 @@ YouTube Atom can transiently return 404/5xx, so the ingestion script retries and
 
 Current MVP uses title + public show notes / media description and intentionally generates conservative summaries. It does **not** republish full transcripts.
 
-When Whisper is enabled, podcast audio is converted by `ffmpeg` into small mono MP3 segments and sent to an OpenAI-compatible `/audio/transcriptions` endpoint. Set:
+When Whisper is enabled, podcast audio is converted by `ffmpeg` into small mono MP3 segments and sent to an OpenAI-compatible `/audio/transcriptions` endpoint. Set the key as a GitHub Actions secret and the endpoint as a GitHub Actions variable:
 
 ```bash
 WHISPER_API_KEY=...
@@ -59,6 +59,8 @@ WHISPER_API_URL=https://api.openai.com/v1/audio/transcriptions
 WHISPER_MODEL=whisper-1
 WHISPER_LANGUAGE=zh
 ```
+
+The scheduled workflow only enables transcription when both `WHISPER_API_KEY` and `WHISPER_API_URL` are configured; otherwise it safely falls back to metadata-only digest generation.
 
 Future upgrade path:
 
