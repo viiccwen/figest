@@ -7,15 +7,20 @@ await ensureDirs()
 const files = (await readdir(rawDir)).filter((file) => file.endsWith('.json'))
 let count = 0
 let transcriptCount = 0
+let skippedWithoutTranscript = 0
 for (const file of files) {
   const raw = await readJson<RawContentItem>(path.join(rawDir, file))
   const transcript = await readPreferredTranscript(raw.id)
-  if (transcript?.text) transcriptCount += 1
-  const summary = await groundedSummary(raw, transcript?.text)
+  if (!transcript?.text) {
+    skippedWithoutTranscript += 1
+    continue
+  }
+  transcriptCount += 1
+  const summary = await groundedSummary(raw, transcript.text)
   await writeJson(path.join(summaryDir, `${summary.id}.json`), summary)
   count += 1
 }
-console.log(`Summarized ${count} item(s), ${transcriptCount} with transcript.`)
+console.log(`Summarized ${count} item(s), ${transcriptCount} with transcript, skipped ${skippedWithoutTranscript} without transcript.`)
 
 async function readPreferredTranscript(rawId: string) {
   return (await readOptionalTranscript<NormalizedTranscriptArtifact>(path.join(normalizedTranscriptDir, `${rawId}.json`)))
