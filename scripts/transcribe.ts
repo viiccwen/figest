@@ -14,7 +14,7 @@ const force = process.argv.includes('--force')
 
 const apiUrl = process.env.WHISPER_API_URL ?? 'https://api.openai.com/v1/audio/transcriptions'
 const apiKey = process.env.WHISPER_API_KEY ?? process.env.OPENAI_API_KEY
-const model = process.env.WHISPER_MODEL ?? 'whisper-1'
+const model = process.env.WHISPER_MODEL ?? (process.env.WHISPER_API_URL ? '' : 'whisper-1')
 const language = process.env.WHISPER_LANGUAGE ?? 'zh'
 const segmentSeconds = Number(process.env.WHISPER_SEGMENT_SECONDS ?? 900)
 const bitrate = process.env.WHISPER_AUDIO_BITRATE ?? '32k'
@@ -108,7 +108,7 @@ console.log(`Transcribed ${done} item(s), skipped ${skipped} item(s).`)
 async function transcribeSegment(filePath: string) {
   const bytes = await readFile(filePath)
   const form = new FormData()
-  form.set('model', model)
+  if (model) form.set('model', model)
   form.set('language', language)
   form.set('response_format', 'json')
   form.set('file', new Blob([bytes], { type: 'audio/mpeg' }), path.basename(filePath))
