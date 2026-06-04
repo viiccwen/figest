@@ -1,0 +1,30 @@
+[
+  {
+    "id": "yutinghao-2026-06-03-tag-soundcloud-2010-tracks-2332383275-crypto-risk",
+    "rawItemId": "yutinghao-2026-06-03-tag-soundcloud-2010-tracks-2332383275",
+    "watchlistKey": "crypto-risk",
+    "title": "加密風險 觀察：比特幣",
+    "summary": "主張聚焦比特幣 / ETF 資金流向與風險情緒變化。具備後續追蹤價值。",
+    "relatedTickers": [],
+    "claimIds": [
+      "yutinghao-2026-06-03-tag-soundcloud-2010-tracks-2332383275-claim-001"
+    ],
+    "riskLevel": "medium"
+  },
+  {
+    "id": "yutinghao-2026-06-03-tag-soundcloud-2010-tracks-2332383275-macro-rates",
+    "rawItemId": "yutinghao-2026-06-03-tag-soundcloud-2010-tracks-2332383275",
+    "watchlistKey": "macro-rates",
+    "title": "總經 / 利率 觀察：USD",
+    "summary": "主張聚焦總經變數，涉及 ETF、美元、USD。相關代號：USD。具備後續追蹤價值。",
+    "relatedTickers": [
+      "USD"
+    ],
+    "claimIds": [
+      "yutinghao-2026-06-03-tag-soundcloud-2010-tracks-2332383275-claim-001",
+      "yutinghao-2026-06-03-tag-soundcloud-2010-tracks-2332383275-claim-002",
+      "yutinghao-2026-06-03-tag-soundcloud-2010-tracks-2332383275-claim-003"
+    ],
+    "riskLevel": "medium"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "gooaye-2026-05-30-fd5d4766-183d-4ed9-8d68-958c50d8e730-macro-rates",
+    "rawItemId": "gooaye-2026-05-30-fd5d4766-183d-4ed9-8d68-958c50d8e730",
+    "watchlistKey": "macro-rates",
+    "title": "總經 / 利率 觀察：升息",
+    "summary": "本集提及 升息，與「升息」觀察清單相關。目前偏資訊整理，先保留觀察。",
+    "relatedTickers": [],
+    "claimIds": [],
+    "riskLevel": "low"
+  },
+  {
+    "id": "gooaye-2026-05-30-fd5d4766-183d-4ed9-8d68-958c50d8e730-semis-ai",
+    "rawItemId": "gooaye-2026-05-30-fd5d4766-183d-4ed9-8d68-958c50d8e730",
+    "watchlistKey": "semis-ai",
+    "title": "半導體 / AI 觀察：2330、TSM",
+    "summary": "本集可確認的標的 / 資產包含 2330，僅作內容索引，不代表買賣建議。相關代號：2330、TSM。目前偏資訊整理，先保留觀察。",
+    "relatedTickers": [
+      "2330",
+      "TSM"
+    ],
+    "claimIds": [],
+    "riskLevel": "low"
+  },
+  {
+    "id": "gooaye-2026-05-30-fd5d4766-183d-4ed9-8d68-958c50d8e730-taiwan-market",
+    "rawItemId": "gooaye-2026-05-30-fd5d4766-183d-4ed9-8d68-958c50d8e730",
+    "watchlistKey": "taiwan-market",
+    "title": "台灣市場 觀察：2330、TSM",
+    "summary": "本集可確認的標的 / 資產包含 2330，僅作內容索引，不代表買賣建議。相關代號：2330、TSM。目前偏資訊整理，先保留觀察。",
+    "relatedTickers": [
+      "2330",
+      "TSM"
+    ],
+    "claimIds": [],
+    "riskLevel": "low"
+  }
+]

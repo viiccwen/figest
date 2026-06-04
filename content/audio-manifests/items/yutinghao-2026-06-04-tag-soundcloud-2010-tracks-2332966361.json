@@ -1,0 +1,55 @@
+{
+  "id": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+  "rawItemId": "yutinghao-2026-06-04-tag-soundcloud-2010-tracks-2332966361",
+  "sourceId": "yutinghao",
+  "audioUrl": "https://feeds.soundcloud.com/stream/2332966361-l9j0totnyhgh-2026-6-4-ai-etf.mp3",
+  "fetchedAt": "2026-06-04T12:04:41.350Z",
+  "metadata": {
+    "durationSeconds": 2036.68898,
+    "codec": "mp3",
+    "sampleRate": 44100,
+    "channels": 2,
+    "warnings": [
+      "silence-aware chunking fell back to fixed chunks: detected silences were too sparse or outside tolerance"
+    ]
+  },
+  "preprocessing": {
+    "targetSampleRate": 16000,
+    "channels": 1,
+    "bitrate": "32k",
+    "segmentSeconds": 900,
+    "vadEnabled": true,
+    "strategy": "fixed",
+    "minChunkSeconds": 60,
+    "maxChunkSeconds": 900,
+    "boundaryToleranceSeconds": 30,
+    "vadMinSilenceDurationSeconds": 0.6,
+    "vadSilenceThresholdDb": "-35dB",
+    "warnings": [
+      "silence-aware chunking fell back to fixed chunks: detected silences were too sparse or outside tolerance"
+    ]
+  },
+  "chunks": [
+    {
+      "index": 0,
+      "file": "part-000.mp3",
+      "start": 0,
+      "end": 900,
+      "boundary": "fixed"
+    },
+    {
+      "index": 1,
+      "file": "part-001.mp3",
+      "start": 900,
+      "end": 1800,
+      "boundary": "fixed"
+    },
+    {
+      "index": 2,
+      "file": "part-002.mp3",
+      "start": 1800,
+      "end": 2036.689,
+      "boundary": "duration"
+    }
+  ]
+}
