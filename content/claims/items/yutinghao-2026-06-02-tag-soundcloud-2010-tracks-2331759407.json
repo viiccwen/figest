@@ -1,0 +1,149 @@
+[
+  {
+    "id": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-claim-001",
+    "rawItemId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407",
+    "segmentId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-seg-001",
+    "claim": "點納指在昨天也一度突破了市場上 27,000 點大關之後現在三大指數應該都創高昨天反而是廢辦在高位盤旋就看輝達給不給力了當然現在沒有股市持續創下歷史新高市場針對 AI 泡沫的警告聲浪其實也沒有停止那我們過去提過由",
+    "claimType": "fact",
+    "entities": [
+      "AI",
+      "輝達"
+    ],
+    "tickers": [
+      "NVDA"
+    ],
+    "sentiment": "bullish",
+    "confidence": 0.88,
+    "evidence": {
+      "start": 0,
+      "end": 150,
+      "quote": "點納指在昨天也一度突破了市場上 27,000 點大關之後現在三大指數應該都創高昨天反而是廢辦在高位盤旋就看輝達給不給力了當然現在沒有股市持續創下歷史新高市場針對 AI 泡沫的警告聲浪其實也沒有停止那我們過去提過由"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-claim-002",
+    "rawItemId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407",
+    "segmentId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-seg-003",
+    "claim": "倍此外輝達還推出新的資料中心的管理軟體聲稱能夠在相同電力的預算底下多部署 40％ 的 AI 加速器那換句話說這就是輝達最大的一個市場聚焦點就是增量市場大家都在成長但是撇開增量市場不看看起來它也是想要打",
+    "claimType": "macro",
+    "entities": [
+      "AI",
+      "輝達"
+    ],
+    "tickers": [
+      "NVDA"
+    ],
+    "sentiment": "bullish",
+    "confidence": 0.88,
+    "evidence": {
+      "start": 300,
+      "end": 450,
+      "quote": "倍此外輝達還推出新的資料中心的管理軟體聲稱能夠在相同電力的預算底下多部署 40％ 的 AI 加速器那換句話說這就是輝達最大的一個市場聚焦點就是增量市場大家都在成長但是撇開增量市場不看看起來它也是想要打"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-claim-003",
+    "rawItemId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407",
+    "segmentId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-seg-006",
+    "claim": "億值這個比之前預測衰退 12% 來的更糟counterpoint 已經連續兩個季度大幅下調針對今年手機銷售的展望當然啦目前看起來最受衝擊的都不是高階的 PC 高階的手機是售價 150 美元以下的低階手機市場因",
+    "claimType": "forecast",
+    "entities": [
+      "美元"
+    ],
+    "tickers": [
+      "USD"
+    ],
+    "sentiment": "bearish",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 750,
+      "end": 900,
+      "quote": "億值這個比之前預測衰退 12% 來的更糟counterpoint 已經連續兩個季度大幅下調針對今年手機銷售的展望當然啦目前看起來最受衝擊的都不是高階的 PC 高階的手機是售價 150 美元以下的低階手機市場因"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-claim-004",
+    "rawItemId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407",
+    "segmentId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-seg-007",
+    "claim": "e 掌握了網路時代蘋果定義了手機時代那麼輝達現在就做更大的事情從 AI 時代的底層基礎建設從晶片到資料中心從企業到政府三百家的合作夥伴打造一個強而有力的輝達供應鏈哇這家說這麼多要組 ETF 都很困難啊麻煩可不可以有人創一個老黃 ETF",
+    "claimType": "fact",
+    "entities": [
+      "AI",
+      "ETF",
+      "半導體",
+      "輝達"
+    ],
+    "tickers": [
+      "NVDA"
+    ],
+    "sentiment": "neutral",
+    "confidence": 0.88,
+    "evidence": {
+      "start": 900,
+      "end": 1050,
+      "quote": "e 掌握了網路時代蘋果定義了手機時代那麼輝達現在就做更大的事情從 AI 時代的底層基礎建設從晶片到資料中心從企業到政府三百家的合作夥伴打造一個強而有力的輝達供應鏈哇這家說這麼多要組 ETF 都很困難啊麻煩可不可以有人創一個老黃 ETF"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-claim-005",
+    "rawItemId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407",
+    "segmentId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-seg-011",
+    "claim": "％所以 12,965 點現在整個台灣市場一樣氣勢如虹華西街現在買的比華爾街還要來的多你看台積電 ADR 昨天大漲 4.",
+    "claimType": "fact",
+    "entities": [
+      "台積電"
+    ],
+    "tickers": [
+      "2330"
+    ],
+    "sentiment": "neutral",
+    "confidence": 0.88,
+    "evidence": {
+      "start": 1500,
+      "end": 1650,
+      "quote": "％所以 12,965 點現在整個台灣市場一樣氣勢如虹華西街現在買的比華爾街還要來的多你看台積電 ADR 昨天大漲 4."
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-claim-006",
+    "rawItemId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407",
+    "segmentId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-seg-012",
+    "claim": "場的聚焦開始對於這個時代有了一個新的邏輯台積電溢價可以被台灣人的現貨價格買到溢價掉下來這也不可思議這件事情都說明著台灣本地的投資熱潮它的信心程度很明顯有一群人他把台積電視為成為我們講說對於下一個時代紅利的重要投射台灣人正在壓住一場國運",
+    "claimType": "fact",
+    "entities": [
+      "台積電"
+    ],
+    "tickers": [
+      "2330"
+    ],
+    "sentiment": "neutral",
+    "confidence": 0.88,
+    "evidence": {
+      "start": 1650,
+      "end": 1800,
+      "quote": "場的聚焦開始對於這個時代有了一個新的邏輯台積電溢價可以被台灣人的現貨價格買到溢價掉下來這也不可思議這件事情都說明著台灣本地的投資熱潮它的信心程度很明顯有一群人他把台積電視為成為我們講說對於下一個時代紅利的重要投射台灣人正在壓住一場國運"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-claim-007",
+    "rawItemId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407",
+    "segmentId": "yutinghao-2026-06-02-tag-soundcloud-2010-tracks-2331759407-seg-013",
+    "claim": "不到一年時間大幅度的成長現在輝達市值 5 兆這個 5 兆規模也很大大概是把台積電加博通加三星加鎂光將超微加 SK 海力士再加愛斯摩加 Intel全部加起來大概才一個輝達的體量所以我們講說之前的兆元驗如果我們把它以市",
+    "claimType": "fact",
+    "entities": [
+      "台積電",
+      "輝達"
+    ],
+    "tickers": [
+      "2330",
+      "NVDA"
+    ],
+    "sentiment": "bullish",
+    "confidence": 0.83,
+    "evidence": {
+      "start": 1800,
+      "end": 1912.633,
+      "quote": "不到一年時間大幅度的成長現在輝達市值 5 兆這個 5 兆規模也很大大概是把台積電加博通加三星加鎂光將超微加 SK 海力士再加愛斯摩加 Intel全部加起來大概才一個輝達的體量所以我們講說之前的兆元驗如果我們把它以市"
+    }
+  }
+]
