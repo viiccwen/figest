@@ -1,0 +1,56 @@
+[
+  {
+    "id": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-macro-rates",
+    "rawItemId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267",
+    "watchlistKey": "macro-rates",
+    "title": "總經 / 利率 觀察：2330、USD",
+    "summary": "主張聚焦總經變數，涉及 台積電、美元、2330。相關代號：2330、USD。具備後續追蹤價值。",
+    "relatedTickers": [
+      "2330",
+      "USD"
+    ],
+    "claimIds": [
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-002",
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-004"
+    ],
+    "riskLevel": "medium"
+  },
+  {
+    "id": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-semis-ai",
+    "rawItemId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267",
+    "watchlistKey": "semis-ai",
+    "title": "半導體 / AI 觀察：2330、NVDA、USD",
+    "summary": "主張顯示風險或壓力升高，涉及 台積電、2330。相關代號：2330、NVDA、USD。風險訊號偏高，適合列入優先追蹤。",
+    "relatedTickers": [
+      "2330",
+      "NVDA",
+      "USD"
+    ],
+    "claimIds": [
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-003",
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-002",
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-001",
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-005"
+    ],
+    "riskLevel": "high"
+  },
+  {
+    "id": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-taiwan-market",
+    "rawItemId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267",
+    "watchlistKey": "taiwan-market",
+    "title": "台灣市場 觀察：2330、NVDA、USD",
+    "summary": "主張顯示風險或壓力升高，涉及 台積電、2330。相關代號：2330、NVDA、USD。風險訊號偏高，適合列入優先追蹤。",
+    "relatedTickers": [
+      "2330",
+      "NVDA",
+      "USD"
+    ],
+    "claimIds": [
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-003",
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-002",
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-001",
+      "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-005"
+    ],
+    "riskLevel": "high"
+  }
+]

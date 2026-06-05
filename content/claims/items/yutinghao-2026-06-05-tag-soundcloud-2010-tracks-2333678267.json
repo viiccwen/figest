@@ -1,0 +1,108 @@
+[
+  {
+    "id": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-001",
+    "rawItemId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267",
+    "segmentId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-seg-003",
+    "claim": "就是 AI 基礎的大爆發先進製程的台積電記憶體龍頭的台力士還有整個亞洲供應鏈導致全球在過去 18 個月的資金正在大幅的流向台灣和國度市場所以這就導致從 EAN 這個指標來看好像有點過了但是七巨頭某種程",
+    "claimType": "forecast",
+    "entities": [
+      "AI",
+      "台積電"
+    ],
+    "tickers": [
+      "2330"
+    ],
+    "sentiment": "bullish",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 300,
+      "end": 450,
+      "quote": "就是 AI 基礎的大爆發先進製程的台積電記憶體龍頭的台力士還有整個亞洲供應鏈導致全球在過去 18 個月的資金正在大幅的流向台灣和國度市場所以這就導致從 EAN 這個指標來看好像有點過了但是七巨頭某種程"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-002",
+    "rawItemId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267",
+    "segmentId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-seg-004",
+    "claim": "年全球資料中心的 ASIC 市場規模從 700 億上調到 800 億美元而且設定 10-15% 的市占率在兩年前市占率是 0 耶現在要在兩年內達到 10-15% 的市占光是存量競爭就可以賺很多錢了那另外一個就是台積電的股東",
+    "claimType": "macro",
+    "entities": [
+      "台積電",
+      "美元"
+    ],
+    "tickers": [
+      "2330",
+      "USD"
+    ],
+    "sentiment": "neutral",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 450,
+      "end": 600,
+      "quote": "年全球資料中心的 ASIC 市場規模從 700 億上調到 800 億美元而且設定 10-15% 的市占率在兩年前市占率是 0 耶現在要在兩年內達到 10-15% 的市占光是存量競爭就可以賺很多錢了那另外一個就是台積電的股東"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-003",
+    "rawItemId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267",
+    "segmentId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-seg-005",
+    "claim": "繼續的往上投那當然這個魏哲家的看法是我都不確定現在是不是高原期有沒有繼續成長空間看起來好像很高了但其實看起來在未來幾年當中不管是客戶還是客戶的客戶給予的市場評估都讓台積電有繼續擴張的可能性台積電過去提到因為先進製程大概要 30% 在美國",
+    "claimType": "risk",
+    "entities": [
+      "台積電"
+    ],
+    "tickers": [
+      "2330"
+    ],
+    "sentiment": "mixed",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 600,
+      "end": 750,
+      "quote": "繼續的往上投那當然這個魏哲家的看法是我都不確定現在是不是高原期有沒有繼續成長空間看起來好像很高了但其實看起來在未來幾年當中不管是客戶還是客戶的客戶給予的市場評估都讓台積電有繼續擴張的可能性台積電過去提到因為先進製程大概要 30% 在美國"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-004",
+    "rawItemId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267",
+    "segmentId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-seg-006",
+    "claim": "道這個情況所以時間可能會拖得稍微久一點但不管如何資本支出今年達到 560 億美元應該不會有太大的問題那這個比例也不用調高因為如果按照資本支出的上升大概每年基本上還是以大概 30 到 40% 的速度上行可是我們知道這",
+    "claimType": "forecast",
+    "entities": [
+      "美元"
+    ],
+    "tickers": [
+      "USD"
+    ],
+    "sentiment": "neutral",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 750,
+      "end": 900,
+      "quote": "道這個情況所以時間可能會拖得稍微久一點但不管如何資本支出今年達到 560 億美元應該不會有太大的問題那這個比例也不用調高因為如果按照資本支出的上升大概每年基本上還是以大概 30 到 40% 的速度上行可是我們知道這"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-claim-005",
+    "rawItemId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267",
+    "segmentId": "yutinghao-2026-06-05-tag-soundcloud-2010-tracks-2333678267-seg-011",
+    "claim": "是不是會大量延後因為我花不起這麼多錢了我可能要先存錢才能夠買更多的 AI 資料中心要不然就要繼續發債到時候的市場變化就要看一下融資的角度為何所以我們才講說雖然我們知道台積電是有信心的輝達看起來 AI 是需求暢旺的可是最終還是要看終端客戶",
+    "claimType": "forecast",
+    "entities": [
+      "AI",
+      "台積電",
+      "輝達"
+    ],
+    "tickers": [
+      "2330",
+      "NVDA"
+    ],
+    "sentiment": "neutral",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 1500,
+      "end": 1650,
+      "quote": "是不是會大量延後因為我花不起這麼多錢了我可能要先存錢才能夠買更多的 AI 資料中心要不然就要繼續發債到時候的市場變化就要看一下融資的角度為何所以我們才講說雖然我們知道台積電是有信心的輝達看起來 AI 是需求暢旺的可是最終還是要看終端客戶"
+    }
+  }
+]
