@@ -1,0 +1,96 @@
+[
+  {
+    "id": "entity-company-台積電-2330",
+    "canonicalName": "台積電",
+    "aliases": [
+      "台積"
+    ],
+    "type": "company",
+    "ticker": "2330",
+    "exchange": "TWSE",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-006"
+    ]
+  },
+  {
+    "id": "entity-company-輝達-nvda",
+    "canonicalName": "輝達",
+    "aliases": [],
+    "type": "company",
+    "ticker": "NVDA",
+    "exchange": "NASDAQ",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-007",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-009",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-010",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-013"
+    ]
+  },
+  {
+    "id": "entity-currency-新台幣-twd",
+    "canonicalName": "新台幣",
+    "aliases": [
+      "台幣"
+    ],
+    "type": "currency",
+    "ticker": "TWD",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-011"
+    ]
+  },
+  {
+    "id": "entity-person-川普",
+    "canonicalName": "川普",
+    "aliases": [],
+    "type": "person",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-009",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-017",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-024"
+    ]
+  },
+  {
+    "id": "entity-ticker-amd-amd",
+    "canonicalName": "AMD",
+    "aliases": [],
+    "type": "ticker",
+    "ticker": "AMD",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-024"
+    ]
+  },
+  {
+    "id": "entity-topic-ai",
+    "canonicalName": "AI",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-003",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-005",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-007",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-008",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-009",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-010",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-011",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-012",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-013",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-014",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-016"
+    ]
+  },
+  {
+    "id": "entity-topic-半導體",
+    "canonicalName": "半導體",
+    "aliases": [
+      "晶圓",
+      "晶圓代工",
+      "晶片"
+    ],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-006",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-011",
+      "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-seg-013"
+    ]
+  }
+]

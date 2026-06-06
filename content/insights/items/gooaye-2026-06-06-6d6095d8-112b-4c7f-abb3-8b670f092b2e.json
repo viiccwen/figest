@@ -1,0 +1,29 @@
+[
+  {
+    "id": "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-semis-ai",
+    "rawItemId": "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e",
+    "watchlistKey": "semis-ai",
+    "title": "半導體 / AI 觀察：2330、AMD、NVDA",
+    "summary": "本集可確認的標的 / 資產包含 2330、NVDA、TWD、AMD，僅作內容索引，不代表買賣建議。相關代號：2330、AMD、NVDA。目前偏資訊整理，先保留觀察。",
+    "relatedTickers": [
+      "2330",
+      "AMD",
+      "NVDA"
+    ],
+    "claimIds": [],
+    "riskLevel": "low"
+  },
+  {
+    "id": "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e-taiwan-market",
+    "rawItemId": "gooaye-2026-06-06-6d6095d8-112b-4c7f-abb3-8b670f092b2e",
+    "watchlistKey": "taiwan-market",
+    "title": "台灣市場 觀察：2330、TWD",
+    "summary": "本集可確認的標的 / 資產包含 2330、NVDA、TWD、AMD，僅作內容索引，不代表買賣建議。相關代號：2330、TWD。目前偏資訊整理，先保留觀察。",
+    "relatedTickers": [
+      "2330",
+      "TWD"
+    ],
+    "claimIds": [],
+    "riskLevel": "low"
+  }
+]
