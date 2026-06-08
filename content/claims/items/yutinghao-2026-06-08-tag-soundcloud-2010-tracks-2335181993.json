@@ -1,0 +1,94 @@
+[
+  {
+    "id": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-claim-001",
+    "rawItemId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993",
+    "segmentId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-001",
+    "claim": "年真的很精彩疫情沒多久我們就看到熔斷然後關稅戰又接著來結果我們陸續迎來史上第一大跌點第二大跌點第一大漲點第一大跌點所以行情走到現在能夠經歷這幾年行情的人實在是很厲害所以大家要清楚知道既然我們已經經歷過這麼多也不要一天的漲跌就讓你改變自",
+    "claimType": "macro",
+    "entities": [],
+    "tickers": [],
+    "sentiment": "neutral",
+    "confidence": 0.72,
+    "evidence": {
+      "start": 0,
+      "end": 150,
+      "quote": "年真的很精彩疫情沒多久我們就看到熔斷然後關稅戰又接著來結果我們陸續迎來史上第一大跌點第二大跌點第一大漲點第一大跌點所以行情走到現在能夠經歷這幾年行情的人實在是很厲害所以大家要清楚知道既然我們已經經歷過這麼多也不要一天的漲跌就讓你改變自"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-claim-002",
+    "rawItemId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993",
+    "segmentId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-002",
+    "claim": "正情緒面還是修正基本面呢我們回過頭看這次市場給予回檔的原因拆解大概來自於四個因素第一是強勁的非農就業數據那第二是博通財報之後的獲利了結第三是 SPACX 上市的傳聞最後是市場針對 AI 記憶體需求的擔憂可是你仔細想想這些利空那不是過去",
+    "claimType": "catalyst",
+    "entities": [
+      "AI",
+      "非農就業"
+    ],
+    "tickers": [],
+    "sentiment": "bearish",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 150,
+      "end": 300,
+      "quote": "正情緒面還是修正基本面呢我們回過頭看這次市場給予回檔的原因拆解大概來自於四個因素第一是強勁的非農就業數據那第二是博通財報之後的獲利了結第三是 SPACX 上市的傳聞最後是市場針對 AI 記憶體需求的擔憂可是你仔細想想這些利空那不是過去"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-claim-003",
+    "rawItemId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993",
+    "segmentId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-005",
+    "claim": "% 左右甚至薪資也沒有造成進一步的通膨失控月增幅大概 0.",
+    "claimType": "macro",
+    "entities": [],
+    "tickers": [],
+    "sentiment": "neutral",
+    "confidence": 0.77,
+    "evidence": {
+      "start": 600,
+      "end": 750,
+      "quote": "% 左右甚至薪資也沒有造成進一步的通膨失控月增幅大概 0."
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-claim-004",
+    "rawItemId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993",
+    "segmentId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-006",
+    "claim": "兆美元這代表短短 3 年內 AI 基礎建設的投資會暴增三成好啦問題來了你看現在 Meta 發債 250 億Google 發債 800 億發這麼多債如果未來繼續發債利率還預期還這麼高壓力就很大了我們",
+    "claimType": "forecast",
+    "entities": [
+      "AI",
+      "美元"
+    ],
+    "tickers": [
+      "USD"
+    ],
+    "sentiment": "bearish",
+    "confidence": 0.9,
+    "evidence": {
+      "start": 750,
+      "end": 900,
+      "quote": "兆美元這代表短短 3 年內 AI 基礎建設的投資會暴增三成好啦問題來了你看現在 Meta 發債 250 億Google 發債 800 億發這麼多債如果未來繼續發債利率還預期還這麼高壓力就很大了我們"
+    }
+  },
+  {
+    "id": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-claim-005",
+    "rawItemId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993",
+    "segmentId": "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-009",
+    "claim": "160 的水準那第三個當然就是亞洲市場的系統單賣壓啦因為就算散戶大軍接得住外資只要國際股市賣壓還在它也不會停那今年新台幣算好的今年新台幣跌幅不到 1%但是韓元已經貶了 6.",
+    "claimType": "macro",
+    "entities": [
+      "新台幣"
+    ],
+    "tickers": [
+      "TWD"
+    ],
+    "sentiment": "neutral",
+    "confidence": 0.83,
+    "evidence": {
+      "start": 1201.0583333333334,
+      "end": 1351.5874999999999,
+      "quote": "160 的水準那第三個當然就是亞洲市場的系統單賣壓啦因為就算散戶大軍接得住外資只要國際股市賣壓還在它也不會停那今年新台幣算好的今年新台幣跌幅不到 1%但是韓元已經貶了 6."
+    }
+  }
+]

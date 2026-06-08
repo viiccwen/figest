@@ -1,0 +1,170 @@
+[
+  {
+    "id": "entity-commodity-黃金",
+    "canonicalName": "黃金",
+    "aliases": [],
+    "type": "commodity",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-002"
+    ]
+  },
+  {
+    "id": "entity-company-台積電-2330",
+    "canonicalName": "台積電",
+    "aliases": [
+      "台積"
+    ],
+    "type": "company",
+    "ticker": "2330",
+    "exchange": "TWSE",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-007"
+    ]
+  },
+  {
+    "id": "entity-company-輝達-nvda",
+    "canonicalName": "輝達",
+    "aliases": [],
+    "type": "company",
+    "ticker": "NVDA",
+    "exchange": "NASDAQ",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-002",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-010"
+    ]
+  },
+  {
+    "id": "entity-currency-新台幣-twd",
+    "canonicalName": "新台幣",
+    "aliases": [
+      "台幣"
+    ],
+    "type": "currency",
+    "ticker": "TWD",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-009"
+    ]
+  },
+  {
+    "id": "entity-currency-日圓-jpy",
+    "canonicalName": "日圓",
+    "aliases": [],
+    "type": "currency",
+    "ticker": "JPY",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-008"
+    ]
+  },
+  {
+    "id": "entity-currency-美元-usd",
+    "canonicalName": "美元",
+    "aliases": [],
+    "type": "currency",
+    "ticker": "USD",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-006",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-011"
+    ]
+  },
+  {
+    "id": "entity-macro-升息",
+    "canonicalName": "升息",
+    "aliases": [],
+    "type": "macro",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-002",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-005",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-006"
+    ]
+  },
+  {
+    "id": "entity-macro-美債殖利率",
+    "canonicalName": "美債殖利率",
+    "aliases": [],
+    "type": "macro",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-001",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-008"
+    ]
+  },
+  {
+    "id": "entity-macro-聯準會",
+    "canonicalName": "聯準會",
+    "aliases": [],
+    "type": "macro",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-006"
+    ]
+  },
+  {
+    "id": "entity-macro-降息",
+    "canonicalName": "降息",
+    "aliases": [],
+    "type": "macro",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-002",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-006"
+    ]
+  },
+  {
+    "id": "entity-macro-非農就業",
+    "canonicalName": "非農就業",
+    "aliases": [
+      "非農"
+    ],
+    "type": "macro",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-001",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-002",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-004",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-005",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-006",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-007"
+    ]
+  },
+  {
+    "id": "entity-person-川普",
+    "canonicalName": "川普",
+    "aliases": [],
+    "type": "person",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-005",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-006"
+    ]
+  },
+  {
+    "id": "entity-topic-ai",
+    "canonicalName": "AI",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-002",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-003",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-004",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-006",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-007",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-008",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-009",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-010",
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-011"
+    ]
+  },
+  {
+    "id": "entity-topic-etf",
+    "canonicalName": "ETF",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-010"
+    ]
+  },
+  {
+    "id": "entity-topic-半導體",
+    "canonicalName": "半導體",
+    "aliases": [],
+    "type": "topic",
+    "evidenceSegmentIds": [
+      "yutinghao-2026-06-08-tag-soundcloud-2010-tracks-2335181993-seg-004"
+    ]
+  }
+]
