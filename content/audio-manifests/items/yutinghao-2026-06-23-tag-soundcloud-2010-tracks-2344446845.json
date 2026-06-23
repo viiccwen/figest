@@ -1,11 +1,11 @@
 {
-  "id": "yutinghao-2026-06-22-tag-soundcloud-2010-tracks-2343750122",
-  "rawItemId": "yutinghao-2026-06-22-tag-soundcloud-2010-tracks-2343750122",
+  "id": "yutinghao-2026-06-23-tag-soundcloud-2010-tracks-2344446845",
+  "rawItemId": "yutinghao-2026-06-23-tag-soundcloud-2010-tracks-2344446845",
   "sourceId": "yutinghao",
-  "audioUrl": "https://feeds.soundcloud.com/stream/2343750122-l9j0totnyhgh-2026-6-22.mp3",
+  "audioUrl": "https://feeds.soundcloud.com/stream/2344446845-l9j0totnyhgh-2026-6-23-spacex.mp3",
   "fetchedAt": "2026-06-23T23:35:24.937Z",
   "metadata": {
-    "durationSeconds": 1881.051429,
+    "durationSeconds": 2081.149388,
     "codec": "mp3",
     "sampleRate": 44100,
     "channels": 2,
@@ -30,21 +30,21 @@
       "index": 0,
       "file": "part-000.mp3",
       "start": 0,
-      "end": 900,
-      "boundary": "fixed"
+      "end": 883.757,
+      "boundary": "silence"
     },
     {
       "index": 1,
       "file": "part-001.mp3",
-      "start": 900,
-      "end": 1777.615,
+      "start": 883.757,
+      "end": 1774.725,
       "boundary": "silence"
     },
     {
       "index": 2,
       "file": "part-002.mp3",
-      "start": 1777.615,
-      "end": 1881.051,
+      "start": 1774.725,
+      "end": 2081.149,
       "boundary": "duration"
     }
   ]
