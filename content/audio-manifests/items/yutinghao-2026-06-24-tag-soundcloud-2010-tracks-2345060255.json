@@ -1,0 +1,51 @@
+{
+  "id": "yutinghao-2026-06-24-tag-soundcloud-2010-tracks-2345060255",
+  "rawItemId": "yutinghao-2026-06-24-tag-soundcloud-2010-tracks-2345060255",
+  "sourceId": "yutinghao",
+  "audioUrl": "https://feeds.soundcloud.com/stream/2345060255-l9j0totnyhgh-2026-6-24-ai.mp3",
+  "fetchedAt": "2026-06-24T23:43:13.782Z",
+  "metadata": {
+    "durationSeconds": 2019.239184,
+    "codec": "mp3",
+    "sampleRate": 44100,
+    "channels": 2,
+    "warnings": []
+  },
+  "preprocessing": {
+    "targetSampleRate": 16000,
+    "channels": 1,
+    "bitrate": "32k",
+    "segmentSeconds": 900,
+    "vadEnabled": true,
+    "strategy": "silence-aware",
+    "minChunkSeconds": 60,
+    "maxChunkSeconds": 900,
+    "boundaryToleranceSeconds": 30,
+    "vadMinSilenceDurationSeconds": 0.6,
+    "vadSilenceThresholdDb": "-35dB",
+    "warnings": []
+  },
+  "chunks": [
+    {
+      "index": 0,
+      "file": "part-000.mp3",
+      "start": 0,
+      "end": 879.321,
+      "boundary": "silence"
+    },
+    {
+      "index": 1,
+      "file": "part-001.mp3",
+      "start": 879.321,
+      "end": 1779.321,
+      "boundary": "fixed"
+    },
+    {
+      "index": 2,
+      "file": "part-002.mp3",
+      "start": 1779.321,
+      "end": 2019.239,
+      "boundary": "duration"
+    }
+  ]
+}
