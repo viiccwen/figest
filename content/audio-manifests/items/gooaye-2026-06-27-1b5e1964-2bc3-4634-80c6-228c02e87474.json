@@ -1,11 +1,11 @@
 {
-  "id": "yutinghao-2026-06-26-tag-soundcloud-2010-tracks-2347397870",
-  "rawItemId": "yutinghao-2026-06-26-tag-soundcloud-2010-tracks-2347397870",
-  "sourceId": "yutinghao",
-  "audioUrl": "https://feeds.soundcloud.com/stream/2347397870-l9j0totnyhgh-2026-6-26.mp3",
-  "fetchedAt": "2026-06-27T23:34:20.281Z",
+  "id": "gooaye-2026-06-27-1b5e1964-2bc3-4634-80c6-228c02e87474",
+  "rawItemId": "gooaye-2026-06-27-1b5e1964-2bc3-4634-80c6-228c02e87474",
+  "sourceId": "gooaye",
+  "audioUrl": "https://rss.soundon.fm/rssf/954689a5-3096-43a4-a80b-7810b219cef3/feedurl/1b5e1964-2bc3-4634-80c6-228c02e87474/rssFileVip.mp3?timestamp=1782588316074",
+  "fetchedAt": "2026-06-27T23:34:19.552Z",
   "metadata": {
-    "durationSeconds": 2125.139592,
+    "durationSeconds": 3180.303673,
     "codec": "mp3",
     "sampleRate": 44100,
     "channels": 2,
@@ -30,21 +30,28 @@
       "index": 0,
       "file": "part-000.mp3",
       "start": 0,
-      "end": 926.691,
-      "boundary": "silence"
+      "end": 900,
+      "boundary": "fixed"
     },
     {
       "index": 1,
       "file": "part-001.mp3",
-      "start": 926.691,
-      "end": 1817.745,
+      "start": 900,
+      "end": 1780.19,
       "boundary": "silence"
     },
     {
       "index": 2,
       "file": "part-002.mp3",
-      "start": 1817.745,
-      "end": 2125.14,
+      "start": 1780.19,
+      "end": 2680.19,
+      "boundary": "fixed"
+    },
+    {
+      "index": 3,
+      "file": "part-003.mp3",
+      "start": 2680.19,
+      "end": 3180.304,
       "boundary": "duration"
     }
   ]
