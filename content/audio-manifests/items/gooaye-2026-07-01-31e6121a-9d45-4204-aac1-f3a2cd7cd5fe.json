@@ -1,0 +1,62 @@
+{
+  "id": "gooaye-2026-07-01-31e6121a-9d45-4204-aac1-f3a2cd7cd5fe",
+  "rawItemId": "gooaye-2026-07-01-31e6121a-9d45-4204-aac1-f3a2cd7cd5fe",
+  "sourceId": "gooaye",
+  "audioUrl": "https://rss.soundon.fm/rssf/954689a5-3096-43a4-a80b-7810b219cef3/feedurl/31e6121a-9d45-4204-aac1-f3a2cd7cd5fe/rssFileVip.mp3?timestamp=1782931888270",
+  "fetchedAt": "2026-07-01T23:51:29.504Z",
+  "metadata": {
+    "durationSeconds": 2997.498776,
+    "codec": "mp3",
+    "sampleRate": 44100,
+    "channels": 2,
+    "warnings": [
+      "silence-aware chunking fell back to fixed chunks: detected silences were too sparse or outside tolerance"
+    ]
+  },
+  "preprocessing": {
+    "targetSampleRate": 16000,
+    "channels": 1,
+    "bitrate": "32k",
+    "segmentSeconds": 900,
+    "vadEnabled": true,
+    "strategy": "fixed",
+    "minChunkSeconds": 60,
+    "maxChunkSeconds": 900,
+    "boundaryToleranceSeconds": 30,
+    "vadMinSilenceDurationSeconds": 0.6,
+    "vadSilenceThresholdDb": "-35dB",
+    "warnings": [
+      "silence-aware chunking fell back to fixed chunks: detected silences were too sparse or outside tolerance"
+    ]
+  },
+  "chunks": [
+    {
+      "index": 0,
+      "file": "part-000.mp3",
+      "start": 0,
+      "end": 900,
+      "boundary": "fixed"
+    },
+    {
+      "index": 1,
+      "file": "part-001.mp3",
+      "start": 900,
+      "end": 1800,
+      "boundary": "fixed"
+    },
+    {
+      "index": 2,
+      "file": "part-002.mp3",
+      "start": 1800,
+      "end": 2700,
+      "boundary": "fixed"
+    },
+    {
+      "index": 3,
+      "file": "part-003.mp3",
+      "start": 2700,
+      "end": 2997.499,
+      "boundary": "duration"
+    }
+  ]
+}
